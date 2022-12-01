@@ -1,19 +1,16 @@
-import React, { StrictMode } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import App from "./App";
 
 import "./styles/tailwind.css";
 
 ReactDOM.render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="*" element={ <App /> } />
+    </Routes>
+   </BrowserRouter>,
   document.getElementById("root") as HTMLElement
 );
-
-serviceWorker.unregister();

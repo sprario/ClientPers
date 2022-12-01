@@ -1,18 +1,21 @@
 import React from "react";
-import { Button } from "./components";
+import { Routes, Route } from 'react-router-dom';
+import Login from './pages/Login'
 
 import "./styles/index.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button label="Valider" />
-        <Button label="Valider" loading={true} />
-        <Button label="Valider" />
-        <Button label="Valider" fullWidth={true} />
-      </header>
-    </div>
+    <>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          {/* <Route path="/create-account" element={<Login/>} /> */}
+          {/* <Route path="/forgot-password" element={} /> */}
+
+          {/* Place new routes over this */}
+          {/* <Route path="/app" component={Layout} /> */}
+        </Routes>
+    </>
   );
 };
 
