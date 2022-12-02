@@ -2,51 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 
 type ButtonProps = {
+  id?: string;
   children: string;
-  to?: string;
+  type?: 'submit' | 'button';
   color?: string;
-  variant?: string;
-  size?: string;
-  fullWidth?: boolean;
-  loading?: boolean;
+  variant?: 'primary' | 'secondary';
+  className?: string;
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
-/**
- * Button
- * @param {string} icon
- * @param {string} label
- * @param {string} to
- * @param {string} color - (success, primary, secondary, warning, error)
- * @param {string} variant - (contained, outlined, text)
- * @param {string} size - (small, medium, large)
- * @param {bool} fullWidth
- * @param {bool} loading
- * @param {bool} disabled
- */
-const Button = ({ children, to, onClick, ...props }: ButtonProps) => {
+const Button: React.FunctionComponent<ButtonProps> = ({ children, onClick, disabled=false, id, type, variant='primary', ...rest}: ButtonProps) => {
+  const styleVariant = variant === 'primary' ? 
+    `w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none ${disabled && 'opacity-75 pointer-events-none'}` : 
+    `inline-block bg-blue-600 col text-white  ${disabled ? ' disabled:opacity-75 ' : 'hover:bg-yellow-500'}`;
+
+  
+  
   return (
-    <button onClick={onClick} type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+    <button onClick={onClick} type={type} id={id} disabled={disabled} className={`rounded-lg p-2 ${styleVariant}`}>
       {children}
     </button>
   );
 };
 
-Button.propTypes = {
-  label: PropTypes.string,
-  to: PropTypes.string,
-  color: PropTypes.string,
-  variant: PropTypes.string,
-  size: PropTypes.oneOf(["small", "medium", "large"]),
-  fullWidth: PropTypes.bool,
-  loading: PropTypes.bool,
-  disabled: PropTypes.bool
-};
-
-Button.defaultProps = {
-  variant: "contained",
-  color: "primary"
-};
 
 export default Button;

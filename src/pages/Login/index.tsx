@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useMemo } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Button, Input } from '../../components';
 
@@ -10,13 +10,14 @@ type FormValues = {
 
 
 const Login = () => {
-  const { register, handleSubmit, watch } = useForm<FormValues>();
+  const { register, handleSubmit, control } = useForm<FormValues>();
   
-  const email = watch('email')
-  const password = watch('password')
-  const validateForm = () => {
-    return email.length > 0 && password.length > 0;
-  }
+  const email = useWatch({ name: 'email', control})
+  const password = useWatch({ name: 'password', control})
+
+  const isDisabled = useMemo(() => !!email && !!password, [ email, password ])
+
+  console.log(isDisabled)
 
   
   const onSubmit = handleSubmit((data:FormValues) => console.log(data));
@@ -43,9 +44,9 @@ const Login = () => {
                 Olvidaste tu contraseña?
             </a>
             <div className="mt-6">
-                <button type='submit' disabled={!!validateForm} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                <Button type='submit' disabled={!isDisabled}>
                     Login
-                </button>
+                </Button>
             </div>
         </form>
     </div>
