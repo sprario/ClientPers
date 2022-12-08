@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 type ButtonProps = {
   id?: string;
@@ -9,18 +8,25 @@ type ButtonProps = {
   variant?: 'primary' | 'secondary';
   className?: string;
   disabled?: boolean;
+  size?: 'small' | 'medium' | 'large',
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
-const Button: React.FunctionComponent<ButtonProps> = ({ children, onClick, disabled=false, id, type, variant='primary', ...rest}: ButtonProps) => {
+const Button: React.FunctionComponent<ButtonProps> = ({ children, onClick, disabled=false, id, type, size, variant='primary', ...rest}: ButtonProps) => {
+  
   const styleVariant = variant === 'primary' ? 
-    `w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none ${disabled && 'opacity-75 pointer-events-none'}` : 
-    `inline-block bg-blue-600 col text-white  ${disabled ? ' disabled:opacity-75 ' : 'hover:bg-yellow-500'}`;
+    `tracking-wide text-white inline-block transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none ${disabled && 'opacity-75 pointer-events-none'}` : 
+    `inline-block bg-blue-600 col text-white  ${disabled ? 'opacity-75 ' : 'hover:bg-yellow-500'}`;
+
+  const sizes = {
+      small : 'h-8 w-20',
+      medium: 'h-10 w-40',
+      large: 'h-12 w-60'
+  }
 
   
-  
   return (
-    <button onClick={onClick} type={type} id={id} disabled={disabled} className={`rounded-lg p-2 ${styleVariant}`}>
+    <button onClick={onClick} type={type} id={id} disabled={disabled} className={`rounded-lg p-2 ${styleVariant} ${size ? sizes[size] : 'w-full'}`}>
       {children}
     </button>
   );

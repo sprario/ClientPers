@@ -22,7 +22,7 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src/**/*.ts", "src/**/*.test.ts", "src/**/*.test.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.test.ts", "src/**/*.test.tsx", "src/mocks/handlers", "src/context/AppContext/index.tsx", "src/components/Spinner/index.tsx"],
   "exclude": [
     "node_modules",
     "build",

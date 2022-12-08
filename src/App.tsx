@@ -1,21 +1,15 @@
 import React from "react";
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login'
+import AppContainer from './containers/core/AppContainer'
+import { initMSW } from "./mocks/browser";
 
 import "./styles/index.css";
 
-const App = () => {
-  return (
-    <>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          {/* <Route path="/create-account" element={<Login/>} /> */}
-          {/* <Route path="/forgot-password" element={} /> */}
+initMSW();
 
-          {/* Place new routes over this */}
-          {/* <Route path="/app" component={Layout} /> */}
-        </Routes>
-    </>
+const App = () => {
+  
+  return (
+      <AppContainer />
   );
 };
 
