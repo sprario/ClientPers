@@ -1,11 +1,11 @@
 import { useContext, useEffect, useMemo } from 'react';
-import { useQuery as useQueryTanStack, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
+import { useQuery as useQueryTanStack, UseQueryOptions as UseQueryOptionsTanStack, UseQueryResult } from 'react-query';
 
 import { FetchServiceEndpoint, FetchError } from '../../types/service';
 import { AppContext, AuthContext } from '../../context';
 import { AppError } from '../../types/core';
 
-// interface UseQueryOptionsProps<T> extends Omit<UseQueryOptions<T, FetchError<T>>, 'onSettled'> {
+// interface UseQueryOptionsProps<T> extends UseQueryOptionsTanStack<T, FetchError<T>> {
 //   showLoadingBackdrop?: boolean;
 //   handleErrors?: boolean;
 // }
@@ -20,15 +20,10 @@ import { AppError } from '../../types/core';
 //     return fetch();
 //   }, [fetch]);
 
-//   const { showLoadingBackdrop, handleErrors, ...useQueryConfig } = useMemo(
+//   const { showLoadingBackdrop, handleErrors, ...useQueryConfig }: UseQueryOptionsProps<T> = useMemo(
 //     () => ({
 //       showLoadingBackdrop: false,
 //       handleErrors: true,
-//       onSettled: () => {
-//         if (showLoadingBackdrop) {
-//           setLoading(true);
-//         }
-//       },
 //       ...config,
 //     }),
 //     [config, loading],
@@ -55,5 +50,4 @@ import { AppError } from '../../types/core';
 //   return useQueryResult;
 // }
 
-// // export { UseBFFQueryOptions };
 // export default useQuery;

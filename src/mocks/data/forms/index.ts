@@ -18,7 +18,7 @@ export const responseFormSuccess = {
             value: '11 de Marzo de 2023',
         },
         {
-            type: 'amount',
+            type: 'text',
             label: 'Monto',
             value: '$ 5400,00',
         },

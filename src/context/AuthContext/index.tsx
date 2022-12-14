@@ -5,13 +5,13 @@ interface AuthProviderProps {
 }
 
 interface AuthContextProps {
-  accessToken: string | null;
+  accessToken: string;
 }
 
 const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
 
 function AuthProvider({ children }: AuthProviderProps): JSX.Element {
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('accessToken') || 'srgsrgasd';
 
   console.log(accessToken, 'aauth')
 

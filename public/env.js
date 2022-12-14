@@ -8,7 +8,7 @@ window.env = {
   "npm_config_only": "",
   "npm_config_commit_hooks": "true",
   "npm_config_browser": "",
-  "npm_package_gitHead": "59171c33badc529e1631029c33262cb7681d3296",
+  "npm_package_gitHead": "ce7a51f1dbbbd45d0ed55eb447d27eb0f1a3cb2e",
   "npm_package_devDependencies_prettier": "^2.1.2",
   "npm_config_also": "",
   "npm_package_dependencies__types_classnames": "^2.2.10",

@@ -1,6 +1,6 @@
 import { LoginResponse } from "../../../services/Login/types"
 
-export const responseLoginSuccess:LoginResponse = {
+export const responseLoginSuccess: LoginResponse = {
     status: 'success',
     accessToken: 'jkasdfasdngsdngksd',
     userProfile: {

@@ -5,6 +5,7 @@ import InnerContent from './InnerContent';
 import ProtectedRoutes from "./ProtectedRoutes";
 import PublicRoutes from "./PublicRoutes";
 import { Forms, Home, Operations } from "../../../pages/Dashboard/pages";
+import Form from '../../../pages/Dashboard/pages/Forms/components/FormContainer';
 
 
 const MainRoutes = () => (
@@ -14,7 +15,7 @@ const MainRoutes = () => (
               <Route path="/" element={<Navigate replace to="dashboard" />} />
               <Route path="/dashboard" element={<Dashboard />} >
                 <Route path="forms" element={<Forms />} > 
-                  <Route path=":id" element={<div>esto es el form </div>} /> 
+                  <Route path=":id" element={<Form />} /> 
                 </Route>
 				<Route path="home" element={<Home />} />
                 <Route path="operations" element={<Operations />} />

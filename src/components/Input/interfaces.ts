@@ -6,6 +6,6 @@ export default interface InputProps {
     onBlur?: () => void;
     disabled?: boolean;
     id?: string;
-    type?: 'text' | 'password' | 'email';
+    type?: string;
     placeholder?: string;
 }

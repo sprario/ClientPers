@@ -2,7 +2,7 @@ import { useContext, useEffect, useMemo } from 'react';
 import { useMutation as useMutationReactQuery, UseMutationOptions as UseMutationOptionsProps, UseMutationResult, useQueryClient } from 'react-query';
 
 import { FetchServiceEndpoint, FetchError } from '../../types/service';
-import { AppContext } from '../../context';
+import { AppContext, AuthContext } from '../../context';
 
 interface UseMutationOptions<T, P> extends Omit<UseMutationOptionsProps<T, FetchError<T>, P>, 'onSettled'> {
   showLoadingBackdrop?: boolean;
@@ -14,7 +14,7 @@ function useMutation<P, T>(
   config?: UseMutationOptions<T, P>,
 ): UseMutationResult<T, FetchError<T>, P, unknown> {
   //const { accessToken } = useContext(AuthContext)
-  const  accessToken  = 'ikld9fs9dfads0akv9vask3gavsa';
+  const { accessToken } = useContext(AuthContext);
   const { setLoading, setError } = useContext(AppContext);
 
   const queryClient = useQueryClient();
