@@ -1,47 +1,31 @@
 import React, { FunctionComponent, useContext, useMemo, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
+import { useNavigate, Link } from 'react-router-dom';
 import { loginRequest } from '../../services/Login';
-import persoft from '../../assets/persoft.jpg'
+import persoft from '../../assets/persoft.jpg';
 import { Button, Card } from '../../components';
 import useMutation from '../../hooks/useMutation';
-import { useNavigate, Link } from 'react-router-dom';
 import { UserContext } from '../../context';
 
 type FormValues = {
-  email: string;
-  password: string;
+	email: string;
+	password: string;
 };
 
 const Login: FunctionComponent = () => {
-  const { register, handleSubmit, control } = useForm<FormValues>();
-  const { setUserProfile } = useContext(UserContext)
-  const [ error, setError ] = useState('')
-  
-  const email = useWatch({ name: 'email', control})
-  const password = useWatch({ name: 'password', control})
+	const { register, handleSubmit, control } = useForm<FormValues>();
+	const { setUserProfile } = useContext(UserContext);
+	const [error, setError] = useState('');
 
-  const navigate = useNavigate()
+	const email = useWatch({ name: 'email', control });
+	const password = useWatch({ name: 'password', control });
 
-  const isDisabled = useMemo(() => !!email && !!password, [ email, password ])
+	const navigate = useNavigate();
 
   const createLoginMutation = useMutation(loginRequest, {
     showLoadingBackdrop: true,
   });
-
-  
-  const onSubmit = handleSubmit((data:FormValues) => {
-    createLoginMutation
-      .mutateAsync({email,password})
-      .then((response) => {
-        const { accessToken, userProfile } = response
-        localStorage.setItem('accessToken', accessToken)
-        setUserProfile(userProfile)
-        navigate('/dashboard')
-      })
-      .catch((err) => {
-        console.error(setError(err))
-      })
-  })
+	const isDisabled = useMemo(() => !!email && !!password, [email, password]);
 
   
   return (
@@ -66,7 +50,7 @@ const Login: FunctionComponent = () => {
                   </div>
                   <div className="btn-wrapper text-center">
                     <button
-                      className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                      className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs ease-linear transition-all duration-150"
                       type="button"
                     >
                       <img
@@ -75,7 +59,7 @@ const Login: FunctionComponent = () => {
                         src="../../assets/img/github.svg"
                       />Github</button
                     ><button
-                      className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                      className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs ease-linear transition-all duration-150"
                       type="button"
                     >
                       <img

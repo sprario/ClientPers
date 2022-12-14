@@ -1,13 +1,12 @@
-import React from 'react';
-import {Outlet} from 'react-router-dom'
+import React, { FunctionComponent } from 'react';
+import { Outlet } from 'react-router-dom';
 
-const  InnerContent=() =>{
-  
-  return (
-    <div className='inner-content'>
-      <Outlet/>
-    </div>
-    )
-}
+const InnerContent: FunctionComponent = () => {
+	return (
+		<div className="inner-content">
+			<Outlet />
+		</div>
+	);
+};
 
 export default InnerContent;

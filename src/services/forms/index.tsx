@@ -5,19 +5,23 @@ import { FormsResponseSuccess, FormsRequest } from './types';
 
 const SERVICE_BASE_URL = `${API_URL}/forms/`;
 
+export const formRequest = ({
+	user,
+	idForm,
+}: FormsRequest): FetchServiceEndpoint<FormsResponseSuccess> => {
+	const url = idForm
+		? `${SERVICE_BASE_URL}${user}/${idForm}`
+		: `${SERVICE_BASE_URL}${user}/`;
 
-export const formRequest = ({user, idForm}:FormsRequest): FetchServiceEndpoint<FormsResponseSuccess> => {
-  const url = idForm ? `${SERVICE_BASE_URL}${user}/${idForm}` : `${SERVICE_BASE_URL}${user}/`;
-
-  return {
-    keys: ['forms-request'],
-    fetcher: (options) =>
-      fetchJson<FormsResponseSuccess>({
-        url,
-        method: 'GET',
-        ...options,
-      }).then((res) => {
-        return res;
-      }),
-  };
+	return {
+		keys: ['forms-request'],
+		fetcher: options =>
+			fetchJson<FormsResponseSuccess>({
+				url,
+				method: 'GET',
+				...options,
+			}).then(res => {
+				return res;
+			}),
+	};
 };

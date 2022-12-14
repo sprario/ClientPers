@@ -1,5 +1,9 @@
 import { useContext, useEffect, useMemo } from 'react';
-import { useQuery as useQueryTanStack, UseQueryOptions as UseQueryOptionsTanStack, UseQueryResult } from 'react-query';
+import {
+	useQuery as useQueryTanStack,
+	UseQueryOptions as UseQueryOptionsTanStack,
+	UseQueryResult,
+} from 'react-query';
 
 import { FetchServiceEndpoint, FetchError } from '../../types/service';
 import { AppContext, AuthContext } from '../../context';

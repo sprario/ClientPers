@@ -1,11 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
-//import { Card } from '../../components';
-
-interface DashboardProps {
-  prop: string;
-}
+// import { Card } from '../../components';
 
 // TODO: Hacer un componente llamado Panel que englobe a Oulet
 // TODO: Hacer componente de Breadcrumbs
@@ -143,7 +139,7 @@ const Dashboard: FunctionComponent = () => {
                   <input
                     type="text"
                     placeholder="Search"
-                    className="border-0 px-3 py-2 h-12 border border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
+                    className="border-0 px-3 py-2 h-12 border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
                   />
                 </div>
               </form>
@@ -400,13 +396,13 @@ const Dashboard: FunctionComponent = () => {
               >
                 <div className="relative flex w-full flex-wrap items-stretch">
                   <span
-                    className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"
+                    className="z-10 h-full leading-snug font-normal  text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"
                     ><i className="fas fa-search"></i
                   ></span>
                   <input
                     type="text"
                     placeholder="Search here..."
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
                   />
                 </div>
               </form>

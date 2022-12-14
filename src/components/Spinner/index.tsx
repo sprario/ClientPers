@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
 interface SpinnerProps {
-  loading: boolean,
-  size?: 'small' | 'medium' | 'large',
+	loading: boolean;
+	size?: 'small' | 'medium' | 'large';
 }
 
 const Spinner: FunctionComponent<SpinnerProps> = ({loading = false, size = 'small' }: SpinnerProps) => {
