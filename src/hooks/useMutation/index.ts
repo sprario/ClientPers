@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { useMutation as useMutationReactQuery, UseMutationOptions as UseMutationOptionsProps, UseMutationResult, useQueryClient } from 'react-query';
 
 import { FetchServiceEndpoint, FetchError } from '../../types/service';
@@ -15,7 +15,7 @@ function useMutation<P, T>(
 ): UseMutationResult<T, FetchError<T>, P, unknown> {
   //const { accessToken } = useContext(AuthContext)
   const  accessToken  = 'ikld9fs9dfads0akv9vask3gavsa';
-  const { setLoading } = useContext(AppContext);
+  const { setLoading, setError } = useContext(AppContext);
 
   const queryClient = useQueryClient();
 
@@ -42,15 +42,15 @@ function useMutation<P, T>(
     return fetchService(mutationBody).fetcher({ accessToken });
   }, useMutationConfig);
 
-  // useEffect(() => {
-  //   if (handleErrors) {
-  //     if (useMutationResult.error) {
-  //       setError({ fetchError: useMutationResult.error });
-  //     } else {
-  //       setError({});
-  //     }
-  //   }
-  // }, [useMutationResult.error, useMutationResult.mutateAsync, handleErrors, setError]);
+  useEffect(() => {
+    if (handleErrors) {
+      if (useMutationResult.error) {
+        setError({ fetchError: useMutationResult.error });
+      } else {
+        // setError({});
+      }
+    }
+  }, [useMutationResult.error, useMutationResult.mutateAsync, handleErrors, setError]);
 
   return useMutationResult;
 }

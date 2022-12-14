@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
 
 interface DashboardProps {
@@ -11,6 +12,9 @@ const Dashboard: FunctionComponent = () => {
     return (
         <div className='flex-col '>
             <Header />
+            <div>
+                <Outlet />
+            </div>
         </div>
     );
 };

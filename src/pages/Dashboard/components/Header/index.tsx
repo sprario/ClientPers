@@ -36,7 +36,7 @@ const Header: FunctionComponent = () => {
                 <ul className="blcok lg:flex">
                   <li>
                     <Link
-                      to='/dashboard'
+                      to='/dashboard/home'
                       className="text-dark hover:text-primary flex py-2 text-base font-medium lg:ml-12 lg:inline-flex"
                     >
                       Inicio
@@ -44,7 +44,7 @@ const Header: FunctionComponent = () => {
                   </li>
                   <li>
                     <Link
-                      to='/forms'
+                      to='/dashboard/forms'
                       className="text-dark hover:text-primary flex py-2 text-base font-medium lg:ml-12 lg:inline-flex"
                     >
                       Formularios
@@ -52,7 +52,7 @@ const Header: FunctionComponent = () => {
                   </li>
                   <li>
                     <Link
-                      to='/operations'
+                      to='/dashboard/operations'
                       className="text-dark hover:text-primary flex py-2 text-base font-medium lg:ml-12 lg:inline-flex"
                     >
                       Operaciones
