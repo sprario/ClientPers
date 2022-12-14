@@ -1,21 +1,20 @@
 export interface Forms {
-    type: string;
-    label: string;
-    value: string;
+	type: string;
+	label: string;
+	value: string;
 }
 
 export interface FormsResponseSuccess {
-    id: string[]
+	id: string[];
 }
 
-
 export interface FormResponse {
-    id: string;
-    name: string;
-    fields: Forms[];
+	id: string;
+	name: string;
+	fields: Forms[];
 }
 
 export interface FormsRequest {
-    user: string;
-    idForm?: string;
+	user: string;
+	idForm?: string;
 }

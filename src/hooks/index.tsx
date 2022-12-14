@@ -1,5 +1,3 @@
-import useWindowSize from "./useWindowSize";
-import useCurrentUrl from "./useCurrentUrl";
-import useToggle from "./useToggle";
+import useCurrentUrl from './useCurrentUrl';
 
-export { useWindowSize, useCurrentUrl, useToggle };
+export { useCurrentUrl };

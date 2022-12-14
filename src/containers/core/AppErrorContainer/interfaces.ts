@@ -1,6 +1,5 @@
 export interface AppErrorContainerProps {
-    title?: string;
-    subtitle?: string;
-    retryOnError?(): void;
-  }
-  
+	title?: string;
+	subtitle?: string;
+	retryOnError?(): void;
+}

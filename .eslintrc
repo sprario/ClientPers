@@ -1,0 +1,113 @@
+{
+    "env": {
+      "browser": true,
+      "es2020": true,
+      "jest": true
+    },
+    "extends": [
+      "airbnb-base",
+      "eslint:recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:jsx-a11y/recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended",
+      "prettier",
+      "prettier/react",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 11,
+      "tsconfigRootDir": "./tsconfig.json"
+    },
+    "plugins": ["import", "jsx-a11y", "lodash", "react", "react-hooks", "@typescript-eslint", "prettier"],
+    "overrides": [
+      {
+        "files": ["**/*.tsx"],
+        "rules": {
+          "react/prop-types": "off",
+          "react/require-default-props": "off",
+          "react/display-name": ["off", { "ignoreTranspilerName": true }],
+          "no-unused-expressions": [
+            "error",
+            {
+              "allowShortCircuit": true
+            }
+          ]
+        }
+      }
+    ],
+    "rules": {
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-use-before-define": ["error"],
+      "import/prefer-default-export": "off",
+      "import/no-cycle": ["off"],
+      
+      "import/no-extraneous-dependencies": ["off"],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      "jsx-a11y/click-events-have-key-events": 0,
+      "jsx-a11y/no-onchange": "off",
+      "jsx-a11y/no-static-element-interactions": 0,
+      "newline-per-chained-call": "off",
+      "no-debugger": ["warn"],
+      "no-console": [
+        "warn",
+        {
+          "allow": ["tron"]
+        }
+      ],
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allow": ["_id"],
+          "enforceInMethodNames": true
+        }
+      ],
+      "no-use-before-define": "off",
+      "quotes": ["error", "single"],
+      "react/require-default-props": ["error"],
+      "no-shadow": "off",
+      "prettier/prettier": [
+        "error",
+        {},
+        {
+          "usePrettierrc": true
+        }
+      ]
+    },
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true
+        },
+        "babel-module": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"],
+          "root": ["./"],
+          "alias": {
+            "~": "./src"
+          }
+        }
+      },
+      "react": {
+        "version": "detect"
+      }
+    }
+  }
+  

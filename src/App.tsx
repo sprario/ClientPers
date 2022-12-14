@@ -1,13 +1,13 @@
-import React from "react";
-import AppContainer from "./containers/core/AppContainer";
-import { initMSW } from "./mocks/browser";
+import React, { FunctionComponent } from 'react';
+import AppContainer from './containers/core/AppContainer';
+import { initMSW } from './mocks/browser';
 
-import "./styles/tailwind.css";
+import './styles/tailwind.css';
 
 initMSW();
 
-const App = () => {
-  return <AppContainer />;
+const App: FunctionComponent = () => {
+	return <AppContainer />;
 };
 
 export default App;

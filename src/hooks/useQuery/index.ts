@@ -1,9 +1,13 @@
-import { useContext, useEffect, useMemo } from 'react';
-import { useQuery as useQueryTanStack, UseQueryOptions as UseQueryOptionsTanStack, UseQueryResult } from 'react-query';
+// import { useContext, useEffect, useMemo } from 'react';
+// import {
+// 	useQuery as useQueryTanStack,
+// 	UseQueryOptions as UseQueryOptionsTanStack,
+// 	UseQueryResult,
+// } from 'react-query';
 
-import { FetchServiceEndpoint, FetchError } from '../../types/service';
-import { AppContext, AuthContext } from '../../context';
-import { AppError } from '../../types/core';
+// import { FetchServiceEndpoint, FetchError } from '../../types/service';
+// import { AppContext, AuthContext } from '../../context';
+// import { AppError } from '../../types/core';
 
 // interface UseQueryOptionsProps<T> extends UseQueryOptionsTanStack<T, FetchError<T>> {
 //   showLoadingBackdrop?: boolean;
@@ -51,3 +55,5 @@ import { AppError } from '../../types/core';
 // }
 
 // export default useQuery;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/explicit-module-boundary-types
+export const test = () => null;
