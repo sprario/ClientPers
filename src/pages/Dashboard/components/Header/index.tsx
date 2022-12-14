@@ -27,7 +27,7 @@ const Header: FunctionComponent = () => {
               />
             </Link>
           </div>
-          <div className="tw-flex tw-w-full tw-items-center tw-justify-betweentw- px-4">
+          <div className="tw-flex tw-w-full tw-items-center tw-justify-betweentw- px-4 sm:tw-hidden">
             <div>
               {/* <nav
                 className="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow transition-all lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none"
