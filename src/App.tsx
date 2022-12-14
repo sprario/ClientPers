@@ -1,16 +1,13 @@
 import React from "react";
-import AppContainer from './containers/core/AppContainer'
+import AppContainer from "./containers/core/AppContainer";
 import { initMSW } from "./mocks/browser";
 
-import "./styles/index.css";
+import "./styles/tailwind.css";
 
 initMSW();
 
 const App = () => {
-  
-  return (
-      <AppContainer />
-  );
+  return <AppContainer />;
 };
 
 export default App;

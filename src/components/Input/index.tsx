@@ -14,7 +14,7 @@ const Input: FunctionComponent<InputProps> = ({name, onChange, onFocus, onBlur, 
        onBlur={onBlur}
        onChange={onChange}
        onFocus={onFocus}
-       className='w-full shadow rounded-lg p-2 border-zinc-500 wd-64'/>
+       className='tw-w-full tw-shadow tw-rounded-lgv tw-p-2 tw-border-zinc-500 tw-wd-64'/>
        {rest}
     </div>
     

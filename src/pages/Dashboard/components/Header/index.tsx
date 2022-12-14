@@ -11,16 +11,15 @@ const Header: FunctionComponent = () => {
     const navigate = useNavigate();
 
     const onClick = () => {
-        localStorage.setItem('accessToken','')
-        navigate('/login')
+      localStorage.setItem('accessToken','')
+      navigate('/login')
     }
 
-
     return (
-        <div className="container mx-auto">
-        <div className="relative -mx-4 flex items-center justify-between bg">
-          <div className="w-60 max-w-xs max-h-xs px-4">
-            <Link to='/' className="block py-5">
+      <div className="tw-w-full tw-mx-auto tw-shadow-lg tw-border-b tw-border-gray-300 tw-px-8">
+        <div className="tw-relative tw--mx-4 tw-flex tw-items-center tw-justify-between bg">
+          <div className="tw-w-60 tw-max-w-xs tw-max-h-xs tw-px-4">
+            <Link to='/' className="tw-block tw-py-5">
               <img
                 src={persoft}
                 alt="logo"
@@ -28,9 +27,9 @@ const Header: FunctionComponent = () => {
               />
             </Link>
           </div>
-          <div className="flex w-full items-center justify-between px-4">
+          <div className="tw-flex tw-w-full tw-items-center tw-justify-betweentw- px-4">
             <div>
-              <nav
+              {/* <nav
                 className="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow transition-all lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none"
               >
                 <ul className="blcok lg:flex">
@@ -68,10 +67,10 @@ const Header: FunctionComponent = () => {
                   </li>
 
                 </ul>
-              </nav>
+              </nav> */}
             </div>
-            <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-              <p className='text-dark hover:text-primary flex py-2 px-10 text-base font-medium lg:ml-12 lg:inline-flex'>Bienvenido {name}</p>
+            <div className="tw-hidden tw-justify-end tw-pr-16 sm:tw-flex lg:tw-pr-0">
+              <p className='tw-text-dark hover:tw-text-primary tw-flex tw-py-2 tw-px-10 tw-text-base tw-font-medium lg:tw-ml-12 lg:tw-inline-flex'>Bienvenido {name}</p>
               <Button size='medium' onClick={onClick}>
                 Cerrar Sesión
               </Button>

@@ -45,23 +45,23 @@ const Login: FunctionComponent = () => {
   return (
     <Card>
       <img src={persoft} alt='persoft' />
-      <form onSubmit={onSubmit} className="mt-6">
-          <div className="flex flex-col">
-          <div className="mb-2 p-1">
-            <input className='w-full shadow rounded-lg p-2 border-zinc-500 wd-64' {...register("email")} type="email" placeholder='usuario@mail.com'/>
+      <form onSubmit={onSubmit} className="tw-mt-6">
+          <div className="tw-flex tw-flex-col">
+          <div className="tw-mb-2 p-1">
+            <input className='tw-w-full tw-shadow tw-rounded-lg tw-p-2 tw-border-zinc-500 tw-wd-64' {...register("email")} type="email" placeholder='usuario@mail.com'/>
           </div>
           <div className="mb-2 p-1">
-              <input className='w-full shadow rounded-lg p-2 border-zinc-500 wd-64' {...register("password")} type="password" placeholder='*********'/>
+            <input className='tw-w-full tw-shadow tw-rounded-lg tw-p-2 tw-border-zinc-500 tw-wd-64' {...register("password")} type="password" placeholder='*********'/>
           </div>
           </div>
           <Link
-                to="/forgot"
-                className="text-xs text-blue-700 hover:underline"
+            to="/forgot"
+            className="tw-text-xs tw-text-blue-700 hover:tw-underline"
           >
-                Olvidaste tu contraseña?
+            Olvidaste tu contraseña?
           </Link>
           {error && <div>{error}</div>}
-          <div className="mt-6">
+          <div className="tw-mt-6">
               <Button type='submit' disabled={!isDisabled}>
                     Login
               </Button>

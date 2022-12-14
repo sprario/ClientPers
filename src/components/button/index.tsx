@@ -15,18 +15,17 @@ type ButtonProps = {
 const Button: React.FunctionComponent<ButtonProps> = ({ children, onClick, disabled=false, id, type, size, variant='primary', ...rest}: ButtonProps) => {
   
   const styleVariant = variant === 'primary' ? 
-    `tracking-wide text-white inline-block transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none ${disabled && 'opacity-75 pointer-events-none'}` : 
-    `inline-block bg-blue-600 col text-white  ${disabled ? 'opacity-75 ' : 'hover:bg-yellow-500'}`;
+    `tw-tracking-wide tw-text-white tw-inline-block tw-transition-colors tw-duration-200 tw-transform tw-bg-blue-700 tw-rounded-md hover:tw-bg-blue-600 focus:tw-outline-none ${disabled && 'tw-opacity-75 tw-pointer-events-none'}` :
+    `tw-inline-block tw-bg-blue-600 tw-col tw-text-white ${disabled ? 'tw-opacity-75 ' : 'hover:tw-bg-yellow-500'}`;
 
   const sizes = {
-      small : 'h-8 w-20',
-      medium: 'h-10 w-40',
-      large: 'h-12 w-60'
+      small : 'tw-h-8 tw-w-20',
+      medium: 'tw-h-10 tw-w-40',
+      large: 'tw-h-12 tw-w-60'
   }
 
-  
   return (
-    <button onClick={onClick} type={type} id={id} disabled={disabled} className={`rounded-lg p-2 ${styleVariant} ${size ? sizes[size] : 'w-full'}`}>
+    <button onClick={onClick} type={type} id={id} disabled={disabled} className={`tw-rounded-lg tw-p-2 ${styleVariant} ${size ? sizes[size] : 'tw-w-full'}`}>
       {children}
     </button>
   );
