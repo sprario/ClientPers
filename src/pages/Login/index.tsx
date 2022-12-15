@@ -42,7 +42,6 @@ const Login: FunctionComponent = () => {
 			});
 	});
 
-  
   return (
     <div className="text-blueGray-700 antialiased">
     <main>
