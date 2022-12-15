@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from './components/Header';
+import { Footer, Header} from '../../components/Layout';
 // import { Card } from '../../components';
 
 // TODO: Hacer un componente llamado Panel que englobe a Oulet
@@ -30,83 +30,7 @@ const Dashboard: FunctionComponent = () => {
             >
               Notus Tailwind JS
             </a>
-            <ul className="md:hidden items-center flex flex-wrap list-none">
-              <li className="inline-block relative">
-                <a
-                  className="text-blueGray-500 block py-1 px-3"
-                  href="#pablo"
-                  // onClick="openDropdown(event,'notification-dropdown')"
-                  ><i className="fas fa-bell"></i
-                ></a>
-                <div
-                  className="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-                  id="notification-dropdown"
-                >
-                  <a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Action</a
-                  ><a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Another action</a
-                  ><a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Something else here</a
-                  >
-                  <div
-                    className="h-0 my-2 border border-solid border-blueGray-100"
-                  ></div>
-                  <a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Seprated link</a
-                  >
-                </div>
-              </li>
-              <li className="inline-block relative">
-                <a
-                  className="text-blueGray-500 block"
-                  href="#pablo"
-                  // onClick="openDropdown(event,'user-responsive-dropdown')"
-                  ><div className="items-center flex">
-                    <span
-                      className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
-                      ><img
-                        alt="..."
-                        className="w-full rounded-full align-middle border-none shadow-lg"
-                        src="../../assets/img/team-1-800x800.jpg"
-                    /></span></div
-                ></a>
-                <div
-                  className="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-                  id="user-responsive-dropdown"
-                >
-                  <a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Action</a
-                  ><a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Another action</a
-                  ><a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Something else here</a
-                  >
-                  <div
-                    className="h-0 my-2 border border-solid border-blueGray-100"
-                  ></div>
-                  <a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Seprated link</a
-                  >
-                </div>
-              </li>
-            </ul>
+            
             <div
               className="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded hidden"
               id="example-collapse-sidebar"
@@ -120,7 +44,7 @@ const Dashboard: FunctionComponent = () => {
                       className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                       href="../../index.html"
                     >
-                      Notus Tailwind JS
+                      Persoft
                     </a>
                   </div>
                   <div className="w-6/12 flex justify-end">
@@ -134,15 +58,6 @@ const Dashboard: FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <form className="mt-6 mb-4 md:hidden">
-                <div className="mb-3 pt-0">
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    className="border-0 px-3 py-2 h-12 border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
-                  />
-                </div>
-              </form>
               <hr className="my-4 md:min-w-full" />
               <h6
                 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
@@ -380,79 +295,8 @@ const Dashboard: FunctionComponent = () => {
           </div>
         </nav>
         <div className="relative md:ml-64 bg-blueGray-50">
-          <nav
-            className="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4"
-          >
-            <div
-              className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4"
-            >
-              <a
-                className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-                href="./index.html"
-                >Dashboard</a
-              >
-              <form
-                className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3"
-              >
-                <div className="relative flex w-full flex-wrap items-stretch">
-                  <span
-                    className="z-10 h-full leading-snug font-normal  text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3"
-                    ><i className="fas fa-search"></i
-                  ></span>
-                  <input
-                    type="text"
-                    placeholder="Search here..."
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
-                  />
-                </div>
-              </form>
-              <ul
-                className="flex-col md:flex-row list-none items-center hidden md:flex"
-              >
-                <a
-                  className="text-blueGray-500 block"
-                  href="#pablo"
-                  // onClick="openDropdown(event,'user-dropdown')"
-                >
-                  <div className="items-center flex">
-                    <span
-                      className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
-                      ><img
-                        alt="..."
-                        className="w-full rounded-full align-middle border-none shadow-lg"
-                        src="../../assets/img/team-1-800x800.jpg"
-                    /></span>
-                  </div>
-                </a>
-                <div
-                  className="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-                  id="user-dropdown"
-                >
-                  <a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Action</a
-                  ><a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Another action</a
-                  ><a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Something else here</a
-                  >
-                  <div
-                    className="h-0 my-2 border border-solid border-blueGray-100"
-                  ></div>
-                  <a
-                    href="#pablo"
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                    >Seprated link</a
-                  >
-                </div>
-              </ul>
-            </div>
-          </nav>
+          <Header />
+
           
           <div className="relative bg-pink-600 md:pt-32 pb-32 pt-12">
             <div className="px-4 md:px-10 mx-auto w-full">
@@ -1036,66 +880,7 @@ const Dashboard: FunctionComponent = () => {
                 </div>
               </div>
             </div>
-            <footer className="block py-4">
-              <div className="container mx-auto px-4">
-                <hr className="mb-4 border-b-1 border-blueGray-200" />
-                <div
-                  className="flex flex-wrap items-center md:justify-between justify-center"
-                >
-                  <div className="w-full md:w-4/12 px-4">
-                    <div
-                      className="text-sm text-blueGray-500 font-semibold py-1 text-center md:text-left"
-                    >
-                      Copyright © <span id="get-current-year"></span>
-                      <a
-                        href="https://www.creative-tim.com?ref=njs-dashboard"
-                        className="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"
-                      >
-                        Creative Tim
-                      </a>
-                    </div>
-                  </div>
-                  <div className="w-full md:w-8/12 px-4">
-                    <ul
-                      className="flex flex-wrap list-none md:justify-end justify-center"
-                    >
-                      <li>
-                        <a
-                          href="https://www.creative-tim.com?ref=njs-dashboard"
-                          className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
-                        >
-                          Creative Tim
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.creative-tim.com/presentation?ref=njs-dashboard"
-                          className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
-                        >
-                          About Us
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="http://blog.creative-tim.com?ref=njs-dashboard"
-                          className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
-                        >
-                          Blog
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-dashboard"
-                          className="text-blueGray-600 hover:text-blueGray-800 text-sm font-semibold block py-1 px-3"
-                        >
-                          MIT License
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </footer>
+            <Footer />
           </div>
         </div>
       </div>

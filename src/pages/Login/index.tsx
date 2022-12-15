@@ -58,7 +58,7 @@ const Login: FunctionComponent = () => {
               >
                 <div className="rounded-t mb-0 px-6 py-6">
                   <div className="btn-wrapper text-center">
-					<img src={persoft} alt='logo' />
+				          	<img src={persoft} alt='logo' />
                   </div>
                   <hr className="mt-6 border-b-1 border-blueGray-300" />
                 </div>
@@ -71,8 +71,8 @@ const Login: FunctionComponent = () => {
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         // for="grid-password"
-                        >Email</label
-                      ><input
+                        >Email</label>
+                      <input
                         type="email"
                         {...register("email")}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -84,8 +84,8 @@ const Login: FunctionComponent = () => {
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         // for="grid-password"
                         >Password
-						</label>
-						<input
+                      </label>
+                      <input
                         type="password"
                         {...register("password")}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -100,9 +100,8 @@ const Login: FunctionComponent = () => {
                           className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
                         /><span
                           className="ml-2 text-sm font-semibold text-blueGray-600"
-                          >Remember me</span
-                        ></label
-                      >
+                          >Remember me</span>
+                        </label>
                     </div>
                     <div className="text-center mt-6">
                       <button
@@ -118,13 +117,13 @@ const Login: FunctionComponent = () => {
               <div className="flex flex-wrap mt-6">
                 <div className="w-1/2">
                   <a href="#pablo" className="text-blueGray-200"
-                    ><small>Forgot password?</small></a
-                  >
+                    ><small>Forgot password?</small>
+                  </a>
                 </div>
                 <div className="w-1/2 text-right">
                   <a href="./register.html" className="text-blueGray-200"
-                    ><small>Create new account</small></a
-                  >
+                    ><small>Create new account</small>
+                  </a>
                 </div>
               </div>
             </div>
