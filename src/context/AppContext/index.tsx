@@ -20,7 +20,7 @@ const AppContext = createContext<AppContextProps>({} as AppContextProps);
 function AppProvider({ children }: AppProviderProps): JSX.Element {
   
   const [error, setError] = useState<AppError>('' as AppError);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
 
   return (

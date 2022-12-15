@@ -13,7 +13,6 @@ function useMutation<P, T>(
   fetchService: (mutationBody: P) => FetchServiceEndpoint<T>,
   config?: UseMutationOptions<T, P>,
 ): UseMutationResult<T, FetchError<T>, P, unknown> {
-  //const { accessToken } = useContext(AuthContext)
   const { accessToken } = useContext(AuthContext);
   const { setLoading, setError } = useContext(AppContext);
 

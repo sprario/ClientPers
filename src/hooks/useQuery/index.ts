@@ -5,49 +5,58 @@ import { FetchServiceEndpoint, FetchError } from '../../types/service';
 import { AppContext, AuthContext } from '../../context';
 import { AppError } from '../../types/core';
 
-// interface UseQueryOptionsProps<T> extends UseQueryOptionsTanStack<T, FetchError<T>> {
-//   showLoadingBackdrop?: boolean;
-//   handleErrors?: boolean;
-// }
 
-// function useQuery<T, P>(
-//   fetch: (params?: P) => FetchServiceEndpoint<T>,
-//   config?: UseQueryOptionsProps<T>,
-// ): UseQueryResult<T, FetchError<T>> {
-//   const { accessToken } = useContext(AuthContext);
-//   const { loading, setLoading, setError } = useContext(AppContext);
-//   const { keys, fetcher } = useMemo(() => {
-//     return fetch();
-//   }, [fetch]);
+interface UseQueryOptionsProps<T> extends Omit<UseQueryOptionsTanStack<T, FetchError<T>>, 'onSettled'> {
+  showLoadingBackdrop?: boolean;
+  handleErrors?: boolean;
+}
 
-//   const { showLoadingBackdrop, handleErrors, ...useQueryConfig }: UseQueryOptionsProps<T> = useMemo(
-//     () => ({
-//       showLoadingBackdrop: false,
-//       handleErrors: true,
-//       ...config,
-//     }),
-//     [config, loading],
-//   );
+function useQuery<T, P>(
+  fetch: (params?: P) => FetchServiceEndpoint<T>,
+  config?: UseQueryOptionsProps<T>,
+): UseQueryResult<T, FetchError<T>> {
+  const { accessToken } = useContext(AuthContext);
+  const { setLoading, setError } = useContext(AppContext);
+  const { keys, fetcher } = useMemo(() => {
+    return fetch();
+  }, [fetch]);
 
-//   const useQueryResult = useQueryTanStack(
-//     keys,
-//     () => {
-//       return fetcher({ accessToken });
-//     },
-//     useQueryConfig,
-//   );
+  const { showLoadingBackdrop, handleErrors, ...useQueryConfig } = useMemo(
+    () => ({
+      showLoadingBackdrop: false,
+      handleErrors: true,
+      onSettled: () => {
+        if (showLoadingBackdrop) {
+          setLoading(false);
+        }
+      },
+      ...config,
+    }),
+    [config, setLoading]
+  );
 
-//   useEffect(() => {
-//     if (handleErrors && useQueryResult.errorUpdatedAt) {
-//       if (useQueryResult.error) {
-//         setError({ fetchError: useQueryResult.error });
-//       } else {
-//         setError({} as AppError);
-//       }
-//     }
-//   }, [useQueryResult.error, useQueryResult.errorUpdatedAt, useQueryResult.refetch, handleErrors, setError]);
+  const useQueryResult = useQueryTanStack(
+    keys,
+    () => {
+      if(showLoadingBackdrop && useQueryResult.failureCount === 0) {
+        setLoading(true);
+      }
+      return fetcher({ accessToken });
+    },
+    useQueryConfig,
+  );
 
-//   return useQueryResult;
-// }
+  useEffect(() => {
+    if (handleErrors && useQueryResult.errorUpdatedAt) {
+      if (useQueryResult.error) {
+        setError({ fetchError: useQueryResult.error });
+      } else {
+        setError({} as AppError);
+      }
+    }
+  }, [useQueryResult.error, useQueryResult.errorUpdatedAt, useQueryResult.refetch, handleErrors, setError]);
 
-// export default useQuery;
+  return useQueryResult;
+}
+
+export default useQuery;
