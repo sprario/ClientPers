@@ -1,24 +1,34 @@
-import React, { FunctionComponent } from 'react';
-// import { useParams } from 'react-router-dom';
-import { responseFormSuccess } from '../../../../../../mocks/data/forms';
+import React, { FunctionComponent, useContext } from 'react';
+import useQuery from '../../../../../../hooks/useQuery';
+import { useParams } from 'react-router-dom';
+import { UserContext } from 'src/context';
+import { getFormWithId } from 'src/services/forms';
 
-const FormContainer: FunctionComponent = () => {
-	// const params = useParams();
+const FormContainer: FunctionComponent =  () => {
+	const { id } = useParams();
+	const { userProfile } = useContext(UserContext);
 
-	const { name, id, fields } = responseFormSuccess;
+	const formQuery = useQuery(() => getFormWithId(userProfile.id, id), { staleTime: 60000, cacheTime: 60000 });
+
+	const { data } = formQuery;
+
 
 	return (
-		<div>
-			<h2>{name}</h2>
-			<h4>ID : {id}</h4>
-			{fields &&
-				fields.map(field => (
+		<div className='flex-col border-l-stone-800' >
+			<div>
+			  <h2 className='md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 no-underline'>
+					{data ? data.name : ''}
+				</h2>
+			  <h4>ID : {id}</h4>
+			</div>
+			{data &&
+				data.fields.map(field => (
 					<div
 						key={field.label}
-						className="w-full shadow rounded-lg p-2 border-zinc-500 wd-64"
+						className="w-full shadow rounded-lg border-zinc-500 wd-64 my-10 mx-20 px-20"
 					>
-						<p>{field.label}</p>
-						<p>{field.value}</p>
+						<p className='md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 no-underline'>{field.label}</p>
+						<p className='text-sm px-5'>{field.value}</p>
 					</div>
 				))}
 		</div>

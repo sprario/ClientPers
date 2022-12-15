@@ -4,10 +4,6 @@ export interface Forms {
 	value: string;
 }
 
-export interface FormsResponseSuccess {
-	id: string[];
-}
-
 export interface FormResponse {
 	id: string;
 	name: string;
@@ -15,6 +11,5 @@ export interface FormResponse {
 }
 
 export interface FormsRequest {
-	user: string;
-	idForm?: string;
+	userId: string;
 }
