@@ -1,4 +1,4 @@
-import { LoginResponse } from '../../../services/Login/types';
+import { LoginResponse } from '../../../services/login/types';
 
 export const responseLoginSuccess: LoginResponse = {
 	status: 'success',

@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Dashboard, Login } from '../../../pages';
+import { Dashboard, Login } from '@/pages';
 import InnerContent from './InnerContent';
 import ProtectedRoutes from './ProtectedRoutes';
 import PublicRoutes from './PublicRoutes';
-import { Forms, Home, Operations } from '../../../pages/Dashboard/pages';
-import Form from '../../../pages/Dashboard/pages/Forms/components/FormContainer';
+import { Forms, Home, Operations } from '@/pages/Dashboard/pages';
+import Form from '@/pages/Dashboard/pages/Forms/components/FormContainer';
 
 const MainRoutes: FunctionComponent = () => (
 	<Routes>
