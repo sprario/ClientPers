@@ -25,4 +25,4 @@ export const responseFormSuccess = {
 	],
 };
 
-export const responseForms = ['123', '124', '150', '456', '457'];
+export const responseForms = ['120', '123', '124', '150', '456', '457'];

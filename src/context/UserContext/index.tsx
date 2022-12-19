@@ -1,5 +1,6 @@
 import React, { createContext } from 'react';
 import { UserProfile } from '../../types/domain/userProfile';
+import { responseLoginSuccess } from '../../mocks/data/login';
 
 interface UserProviderProps {
 	children: React.ReactNode;
@@ -17,7 +18,7 @@ const UserContext = createContext<UserContextProps>({
 
 function UserProvider({ children }: UserProviderProps): JSX.Element {
 	const [userProfile, setUserProfile] = React.useState<UserProfile>(
-		{} as UserProfile
+		responseLoginSuccess.userProfile
 	);
 
 	return (

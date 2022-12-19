@@ -54,7 +54,7 @@ function useQuery<T, P>(
       if (useQueryResult.error) {
         setError({ retryOnError: useQueryResult.refetch, fetchError: useQueryResult.error });
       } else {
-        setError(null);
+        setError({});
       }
     }
   }, [useQueryResult.error, useQueryResult.errorUpdatedAt, useQueryResult.refetch, handleErrors, setError]);
@@ -62,5 +62,5 @@ function useQuery<T, P>(
   return useQueryResult;
 };
 
-export { UseQueryOptionsProps };
+export type { UseQueryOptionsProps };
 export default useQuery;
