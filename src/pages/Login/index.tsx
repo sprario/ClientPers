@@ -1,9 +1,8 @@
 import React, { FunctionComponent, useContext, useMemo, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import { loginRequest } from '../../services/login';
-import persoft from '../../assets/persoft.jpg';
-import { Button, Card } from '../../components';
+import { loginRequest } from '@/services/login';
+import persoft from '../../assets/persoft.png';
 import useMutation from '../../hooks/useMutation';
 import { UserContext } from '../../context';
 

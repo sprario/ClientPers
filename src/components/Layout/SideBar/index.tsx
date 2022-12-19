@@ -1,7 +1,8 @@
 import { FunctionComponent, MouseEventHandler } from 'react';
 import { Link } from 'react-router-dom';
 import { AvatarMenu } from '@/components/layout';
-import persoft  from '@/assets/persoft.jpg'
+import persoft  from '@/assets/persoft.jpg';
+import persoftLogo from '@/assets/persoft-logo.png';
 
 type RoutesProps = {
   routes : {
@@ -36,10 +37,13 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
             <i className="fa fa-bars"></i>
           </button>
           <div
-            className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+            className="md:block text-left md:pb-2 w-10  text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
           >
-            {/* Persoft */}
+            <Link to='/'>
+              <img src={persoftLogo} alt='persoft integraciones'/>
+            </Link>
           </div>
+
 
           <ul className="md:hidden items-center flex flex-wrap list-none">
             <li className="inline-block relative">
