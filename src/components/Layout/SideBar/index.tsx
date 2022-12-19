@@ -1,6 +1,7 @@
 import { FunctionComponent, MouseEventHandler } from 'react';
 import { Link } from 'react-router-dom';
 import { AvatarMenu } from '@/components/layout';
+import persoft  from '@/assets/persoft.jpg'
 
 type RoutesProps = {
   routes : {
@@ -25,7 +26,7 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
         className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"
       >
         <div
-          className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto"
+          className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto "
         >
           <button
             className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
@@ -73,113 +74,106 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
                 </div>
               </div>
             </div>
+            <img src={persoft} alt='persoft integraciones'/>
             <hr className="my-4 md:min-w-full" />
             <h6
-              className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+              className="md:min-w-full px-5 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
             >
-              Admin Layout Pages
+              Módulos
             </h6>
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            <ul className="md:flex-col px-5 md:min-w-full flex flex-col list-none">
               <li className="items-center">
-                <a
-                  href="./dashboard.html"
+                <Link
+                  to="dashboard/"
                   className="text-xs uppercase py-3 font-bold block text-pink-500 hover:text-pink-600"
                 >
-                  <i className="fa fa-square-list mr-2 text-sm text-blueGray-300"></i>
-                  Dashboard
-                </a>
+                  <i
+                    className="fa fa-home text-blueGray-300 mr-2 text-sm"
+                  ></i>
+                  Inicio
+                </Link>
               </li>
 
               <li className="items-center">
-                <a
-                  href="./settings.html"
-                  className="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"
-                >
-                  <i className="fa fa-tools mr-2 text-sm text-blueGray-300"></i>
-                  Settings
-                </a>
-              </li>
-
-              <li className="items-center">
-                <a
-                  href="./tables.html"
+                <Link
+                  to="forms"
                   className="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"
                 >
                   <i className="fa fa-table mr-2 text-sm text-blueGray-300"></i>
-                  Tables
-                </a>
+                  Formularios
+                </Link>
               </li>
 
               <li className="items-center">
-                <a
-                  href="./maps.html"
+                <Link
+                  to="orders"
                   className="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"
                 >
                   <i
-                    className="fa fa-map-marked mr-2 text-sm text-blueGray-300"
+                    className="fa fa-file-text mr-2 text-sm text-blueGray-300"
                   ></i>
-                  Maps
-                </a>
+                  Ordenes de Trabajo
+                </Link>
               </li>
             </ul>
 
             <hr className="my-4 md:min-w-full" />
             <h6
-              className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+              className="md:min-w-full px-5 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
             >
-              Auth Layout Pages
+              Usuarios
             </h6>
-
+           {/* //TODO: Setear para que este menú se muestre segun perfil de usuario */}
             <ul
-              className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"
+              className="md:flex-col md:min-w-full px-5 flex flex-col list-none md:mb-4"
             >
               <li className="items-center">
-                <a
-                  href="../auth/login.html"
+                <Link
+                  to="dashboard/users"
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                 >
                   <i
-                    className="fa fa-fingerprint text-blueGray-300 mr-2 text-sm"
+                    className="fa fa-users text-blueGray-300 mr-2 text-sm"
                   ></i>
-                  Login
-                </a>
+                  Lista de usuarios
+                </Link>
               </li>
 
               <li className="items-center">
-                <a
-                  href="../auth/register.html"
+                <Link
+                  to="dashboard/adduser"
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                 >
                   <i
-                    className="fa fa-clipboard-list text-blueGray-300 mr-2 text-sm"
+                    className="fa fa-user-plus text-blueGray-300 mr-2 text-sm"
                   ></i>
-                  Register
-                </a>
+                  Nuevo Usuario
+                </Link>
               </li>
             </ul>
 
-            <hr className="my-4 md:min-w-full" />
+            <hr className="my-4 md:min-w-full " />
             <h6
-              className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+              className="md:min-w-full px-5 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
             >
               Mi cuenta
             </h6>
 
             <ul
-              className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"
+              className="md:flex-col md:min-w-full px-5 flex flex-col list-none md:mb-4"
             >
 
               <li className="items-center">
-                <a
-                  href="../profile.html"
+                <Link
+                  to="dashboard/profile"
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                 >
                   <i
                     className="fa fa-user text-blueGray-300 mr-2 text-sm"
                   ></i>
-                  Profile Page
-                </a>
+                  Perfil
+                </Link>
               </li>
             </ul>
           </div>

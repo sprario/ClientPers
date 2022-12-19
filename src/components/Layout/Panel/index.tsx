@@ -1,12 +1,10 @@
 import React, { FunctionComponent } from 'react';
 
-interface PanelProps {
-  title?: string;
-  subtitle?: string;
-  children?: React.ReactNode;
+type PanelProps = {
+  children: React.ReactNode;
 }
 
-const Panel: FunctionComponent = ({ title, subtitle, children }: PanelProps ) => {
+const Panel: FunctionComponent<PanelProps> = ({ children }: PanelProps ) => {
 
   return (
     <div className="w-full px-5 ">
@@ -23,4 +21,5 @@ const Panel: FunctionComponent = ({ title, subtitle, children }: PanelProps ) =>
   );
 };
 
+export type { PanelProps };
 export default Panel;

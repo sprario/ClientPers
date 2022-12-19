@@ -23,14 +23,16 @@ const Header: FunctionComponent = () => {
             className="text-gray-600 text-sm uppercase hidden lg:inline-block font-semibold"
             to="/"
             >Persoft Integraciones
-          </Link>
+          </Link>          
+        </div>
+        <div>
           <ul
             className="flex-col md:flex-row list-none items-center hidden md:flex cursor-pointer"
           >
             <AvatarMenu />
           </ul>
         </div>
-      </nav>
+     </nav>
     );
 };
 

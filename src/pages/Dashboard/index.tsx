@@ -4,14 +4,13 @@ import { Footer, Header, Panel, PanelFit, SideBar } from '@/components/Layout';
 import { routes as RoutesSideBar } from '@/constants/routes';
 import { UserContext } from '@/context/UserContext';
 
-// TODO: Hacer un componente llamado Panel que englobe a Oulet
+
 // TODO: Hacer componente de Breadcrumbs
-// TODO: Hacer componente de Footer
 // TODO: Tiene una ruta por defecto
 const Dashboard: FunctionComponent = () => {
   const { userProfile } = useContext(UserContext);
   return (
-    <div className="text-blueGray-700 antialiased">
+    <div className="text-blueGray-700 antialiased h-full">
       <div id="root">
         <SideBar routes={RoutesSideBar[userProfile?.role]} />
         <div className="relative md:ml-64  bg-blueGray-50">       

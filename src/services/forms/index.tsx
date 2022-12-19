@@ -1,18 +1,18 @@
 import { fetchJson } from '../../utils/fetch';
 import { API_URL } from '../../constants';
 import { FetchServiceEndpoint } from '../../types/service';
-import { FormResponse } from './types'
+import { FormResponse, FormsResponse } from './types'
 
 const SERVICE_BASE_URL = `${API_URL}/forms/`;
 
 
-export const getForms = ( userId: string ): FetchServiceEndpoint<string[]> => {
+export const getForms = ( userId?: string ): FetchServiceEndpoint<FormsResponse[]> => {
 	const url = `${SERVICE_BASE_URL}${userId}/`;
 
 	return {
 		keys: ['forms-request'],
 		fetcher: options =>
-			fetchJson<string[]>({
+			fetchJson<FormsResponse[]>({
 				url,
 				method: 'GET',
 				...options,
@@ -22,7 +22,7 @@ export const getForms = ( userId: string ): FetchServiceEndpoint<string[]> => {
 	};
 };
 
-export const getFormWithId = (userId: string,formId: string): FetchServiceEndpoint<FormResponse> => {
+export const getFormWithId = (userId?: string,formId?: string): FetchServiceEndpoint<FormResponse> => {
 	
 	const url = `${SERVICE_BASE_URL}${userId}/${formId}/`;
 

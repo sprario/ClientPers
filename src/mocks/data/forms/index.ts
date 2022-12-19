@@ -1,3 +1,5 @@
+import { FormsResponse } from '@/services/forms/types';
+
 export const responseFormSuccess = {
 	id: '120',
 	name: 'Formulario XXX',
@@ -25,4 +27,25 @@ export const responseFormSuccess = {
 	],
 };
 
-export const responseForms = ['120', '123', '124', '150', '456', '457'];
+export const responseForms:FormsResponse[] = [
+	{
+		formId: '120',
+		creationAt: new Date(),
+	},
+	{
+		formId: '145',
+		creationAt: new Date(),
+	},
+	{
+		formId: '245',
+		creationAt: new Date(),
+	},
+	{
+		formId: '320',
+		creationAt: new Date(),
+	},
+	{
+		formId: '321',
+		creationAt: new Date(),
+	}
+];

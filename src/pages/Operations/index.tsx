@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
-const Operations: FunctionComponent = () => {
+const Orders: FunctionComponent = () => {
 	return <div>Operations</div>;
 };
 
-export default Operations;
+export default Orders;

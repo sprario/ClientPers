@@ -1,4 +1,4 @@
-export interface Forms {
+export interface Fields {
 	type: string;
 	label: string;
 	value: string;
@@ -7,9 +7,14 @@ export interface Forms {
 export interface FormResponse {
 	id: string;
 	name: string;
-	fields: Forms[];
+	fields: Fields[];
 }
 
 export interface FormsRequest {
 	userId: string;
+}
+
+export interface FormsResponse {
+	formId: string;
+	creationAt: Date;
 }

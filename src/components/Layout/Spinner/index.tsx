@@ -3,9 +3,10 @@ import React, { FunctionComponent } from 'react';
 interface SpinnerProps {
 	loading: boolean;
 	size?: 'small' | 'medium' | 'large';
+  isfullPage?: boolean;
 }
 
-const Spinner: FunctionComponent<SpinnerProps> = ({loading = true, size = 'large' }: SpinnerProps) => {
+const Spinner: FunctionComponent<SpinnerProps> = ({loading = true, size = 'large', isfullPage = true }: SpinnerProps) => {
   if(!loading) return null;
   
   const sizes = {
@@ -16,7 +17,7 @@ const Spinner: FunctionComponent<SpinnerProps> = ({loading = true, size = 'large
   
   return (
 
-    <div className={`${loading ? 'block' : 'hidden'} w-full h-full fixed top-0 left-0 bg-white opacity-75 z-50`} role="status">
+    <div className={`${loading ? 'block' : 'hidden'} w-full h-full ${isfullPage ? 'fixed' : 'absolute'} top-0 left-0 bg-white opacity-75 z-50`} role="status">
       <div className="opacity-75 top-1/2 my-0 mx-auto block relative w-0 h-0">
         <svg className={`${sizes[size]} animate-spin`} viewBox="3 3 18 18">
           <path
