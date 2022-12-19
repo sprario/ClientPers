@@ -3,6 +3,7 @@ import useQuery from '../../../../hooks/useQuery';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '@/context';
 import { getFormWithId } from '@/services/forms';
+import Spinner from '@/components/Layout/Spinner';
 
 const FormContainer: FunctionComponent =  () => {
 	const { id } = useParams();
@@ -23,7 +24,7 @@ const FormContainer: FunctionComponent =  () => {
 			</div>
 			{data &&
 				data.fields.map(field => (
-					<div
+				  <div
 						key={field.label}
 						className="w-full shadow rounded-lg border-zinc-500 wd-64 my-10 mx-20 px-20"
 					>
