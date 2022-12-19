@@ -21,7 +21,7 @@ const Spinner: FunctionComponent<SpinnerProps> = ({loading = false, size = 'smal
             Element on the center of the screen
         </div>
     </div>
-</div>
+  </div>
   )
 };
 

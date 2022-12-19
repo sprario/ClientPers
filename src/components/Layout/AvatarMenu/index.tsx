@@ -23,7 +23,7 @@ const AvatarMenu: FunctionComponent = () => {
     return (
         <div>
           <ul
-            className="flex-col md:flex-row list-none items-center hidden md:flex"
+            className="flex-col md:flex-row list-none items-center hidden md:flex cursor-pointer"
           >
             <a
               className="text-blueGray-500 block"
@@ -50,13 +50,15 @@ const AvatarMenu: FunctionComponent = () => {
 							<Link
                 to="/profile"
                 className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                >Ver Perfil</Link>
+              >
+                Ver Perfil
+              </Link>
               <div
                 className="h-0 my-2 border border-solid border-blueGray-100">
 							</div>
               <a
                 onClick={closeSession}
-                className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                className="text-sm cursor-pointer py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
                 >Cerrar Sesión</a>
             </div>
           </ul>

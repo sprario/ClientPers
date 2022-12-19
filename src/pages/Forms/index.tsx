@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Outlet, useSearchParams, Link, useParams } from 'react-router-dom';
 import { UserContext } from '@/context';
-import useQuery from '../../../../hooks/useQuery';
-import { getForms } from '../../../../services/forms';
+import useQuery from '../../hooks/useQuery';
+import { getForms } from '../../services/forms';
 
 /**
    * useLocation returns something like:

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useContext } from 'react';
-import useQuery from '../../../../../../hooks/useQuery';
+import useQuery from '../../../../hooks/useQuery';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '@/context';
 import { getFormWithId } from '@/services/forms';

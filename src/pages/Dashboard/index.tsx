@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Footer, Header, Panel, PanelFit } from '../../components/Layout';
+import { Footer, Header, Panel, PanelFit } from '@/components/Layout';
 // import { Card } from '../../components';
 
 // TODO: Hacer un componente llamado Panel que englobe a Oulet
