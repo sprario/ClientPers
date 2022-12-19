@@ -7,5 +7,6 @@ import SearchInput from './SearchInput';
 import Button from './Button';
 import Input from './Input';
 import Card from './Card';
+import SideBar from './SideBar';
 
-export { AvatarMenu, Button, Card, Footer, Header, Input, Panel, PanelFit, SearchInput };
+export { AvatarMenu, Button, Card, Footer, Header, Input, Panel, PanelFit, SearchInput, SideBar };

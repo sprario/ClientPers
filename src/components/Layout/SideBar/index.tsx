@@ -1,28 +1,24 @@
 import { FunctionComponent, MouseEventHandler } from 'react';
 import { Link } from 'react-router-dom';
-import { createPopper } from '@popperjs/core';
+import { AvatarMenu } from '@/components/layout';
+
+type RoutesProps = {
+  routes : {
+    path: string;
+    icon?: string;
+  }[];
+};
 
 
-const SideBar: FunctionComponent = () => {
-  // const toggleNavbar = (collapseID: string): void => {
-  //   document?.getElementById(collapseID)?.classNameNameList.toggle("hidden");
-  //   document?.getElementById(collapseID)?.classNameNameList.toggle("bg-white");
-  //   document?.getElementById(collapseID)?.classNameNameList.toggle("m-2");
-  //   document?.getElementById(collapseID)?.classNameNameList.toggle("py-3");
-  //   document?.getElementById(collapseID)?.classNameNameList.toggle("px-6");
-  // };
-
-  //const openDropdown = (event, dropdownID) => {
-    // let element = event.target;
-    // while (element.nodeName !== "A") {
-    //   element = element.parentNode;
-    // }
-    // createPopper(element, document.getElementById(dropdownID), {
-    //   placement: "bottom-start"
-    // });
-    // document.getElementById(dropdownID)?.classNameList.toggle("hidden");
-    // document.getElementById(dropdownID)?.classNameList.toggle("block");
-  //}
+const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
+  const toggleNavbar = (collapseID: string): void => {
+    document?.getElementById(collapseID)?.classList?.toggle("hidden");
+    document?.getElementById(collapseID)?.classList?.toggle("bg-white");
+    document?.getElementById(collapseID)?.classList?.toggle("m-2");
+    document?.getElementById(collapseID)?.classList?.toggle("py-3");
+    document?.getElementById(collapseID)?.classList?.toggle("px-6");
+  };
+  console.log(routes, 'RUTAs');
   return (
     <>
       <nav
@@ -34,7 +30,7 @@ const SideBar: FunctionComponent = () => {
           <button
             className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
             type="button"
-            // onClick="toggleNavbar('example-collapse-sidebar')"
+            onClick={() => toggleNavbar('collapse-sidebar')}
           >
             <i className="fa fa-bars"></i>
           </button>
@@ -43,80 +39,11 @@ const SideBar: FunctionComponent = () => {
           >
             {/* Persoft */}
           </div>
+
           <ul className="md:hidden items-center flex flex-wrap list-none">
             <li className="inline-block relative">
-              <a
-                className="text-blueGray-500 block py-1 px-3"
-                href="#pablo"
-                // onClick="openDropdown(event,'notification-dropdown')"
-                ><i className="fas fa-bell"></i
-              ></a>
-              <div
-                className="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-                id="notification-dropdown"
-              >
-                <a
-                  href="#pablo"
-                  className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                  >Action</a
-                ><a
-                  href="#pablo"
-                  className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                  >Another action</a
-                ><a
-                  href="#pablo"
-                  className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                  >Something else here</a
-                >
-                <div
-                  className="h-0 my-2 border border-solid border-blueGray-100"
-                ></div>
-                <a
-                  href="#pablo"
-                  className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                  >Seprated link</a
-                >
-              </div>
-            </li>
-            <li className="inline-block relative">
-              <a
-                className="text-blueGray-500 block"
-                href="#pablo"
-                // onClick="openDropdown(event,'user-responsive-dropdown')"
-                ><div className="items-center flex">
-                  <span
-                    className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
-                    ><img
-                      alt="..."
-                      className="w-full rounded-full align-middle border-none shadow-lg"
-                      src="../../assets/img/team-1-800x800.jpg"
-                  /></span></div
-              ></a>
-              <div
-                className="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-                id="user-responsive-dropdown"
-              >
-                <a
-                  href="#pablo"
-                  className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                  >Action</a
-                ><a
-                  href="#pablo"
-                  className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                  >Another action</a
-                ><a
-                  href="#pablo"
-                  className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                  >Something else here</a
-                >
-                <div
-                  className="h-0 my-2 border border-solid border-blueGray-100"
-                ></div>
-                <a
-                  href="#pablo"
-                  className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                  >Seprated link</a
-                >
+              <div className="items-center flex">
+                <AvatarMenu />
               </div>
             </li>
           </ul>
@@ -129,20 +56,19 @@ const SideBar: FunctionComponent = () => {
             >
               <div className="flex flex-wrap">
                 <div className="w-6/12">
-                  <a
+                  <div
                     className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                    href="../../index.html"
                   >
                     Persoft
-                  </a>
+                  </div>
                 </div>
                 <div className="w-6/12 flex justify-end">
                   <button
                     type="button"
                     className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-                    // onClick="toggleNavbar('example-collapse-sidebar')"
+                    onClick={() => toggleNavbar('collapse-sidebar')}
                   >
-                    <i className="fas fa-times"></i>
+                    <i className="fa fa-times"></i>
                   </button>
                 </div>
               </div>
@@ -160,7 +86,7 @@ const SideBar: FunctionComponent = () => {
                   href="./dashboard.html"
                   className="text-xs uppercase py-3 font-bold block text-pink-500 hover:text-pink-600"
                 >
-                  <i className="fas fa-tv mr-2 text-sm opacity-75"></i>
+                  <i className="fa fa-square-list mr-2 text-sm text-blueGray-300"></i>
                   Dashboard
                 </a>
               </li>
@@ -170,7 +96,7 @@ const SideBar: FunctionComponent = () => {
                   href="./settings.html"
                   className="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"
                 >
-                  <i className="fas fa-tools mr-2 text-sm text-blueGray-300"></i>
+                  <i className="fa fa-tools mr-2 text-sm text-blueGray-300"></i>
                   Settings
                 </a>
               </li>
@@ -180,7 +106,7 @@ const SideBar: FunctionComponent = () => {
                   href="./tables.html"
                   className="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"
                 >
-                  <i className="fas fa-table mr-2 text-sm text-blueGray-300"></i>
+                  <i className="fa fa-table mr-2 text-sm text-blueGray-300"></i>
                   Tables
                 </a>
               </li>
@@ -191,7 +117,7 @@ const SideBar: FunctionComponent = () => {
                   className="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"
                 >
                   <i
-                    className="fas fa-map-marked mr-2 text-sm text-blueGray-300"
+                    className="fa fa-map-marked mr-2 text-sm text-blueGray-300"
                   ></i>
                   Maps
                 </a>
@@ -214,7 +140,7 @@ const SideBar: FunctionComponent = () => {
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                 >
                   <i
-                    className="fas fa-fingerprint text-blueGray-300 mr-2 text-sm"
+                    className="fa fa-fingerprint text-blueGray-300 mr-2 text-sm"
                   ></i>
                   Login
                 </a>
@@ -226,7 +152,7 @@ const SideBar: FunctionComponent = () => {
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                 >
                   <i
-                    className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"
+                    className="fa fa-clipboard-list text-blueGray-300 mr-2 text-sm"
                   ></i>
                   Register
                 </a>
@@ -237,23 +163,12 @@ const SideBar: FunctionComponent = () => {
             <h6
               className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
             >
-              No Layout Pages
+              Mi cuenta
             </h6>
 
             <ul
               className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"
             >
-              <li className="items-center">
-                <a
-                  href="../landing.html"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                >
-                  <i
-                    className="fas fa-newspaper text-blueGray-300 mr-2 text-sm"
-                  ></i>
-                  Landing Page
-                </a>
-              </li>
 
               <li className="items-center">
                 <a
@@ -261,7 +176,7 @@ const SideBar: FunctionComponent = () => {
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                 >
                   <i
-                    className="fas fa-user-circle text-blueGray-300 mr-2 text-sm"
+                    className="fa fa-user text-blueGray-300 mr-2 text-sm"
                   ></i>
                   Profile Page
                 </a>

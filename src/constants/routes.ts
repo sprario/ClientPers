@@ -1,20 +1,32 @@
 const routes = {
-  operations: {
+  admin: {
+    forms: {
+      path: '/formularios',
+      icon: 'fa fa-table',
+    },
     account: {
       path: '/mi-cuenta',
-      icon: '',
+      icon: 'fa fa-user',
     }
   },
   clients: {
+    forms: {
+      path: '/formularios',
+      icon: 'fa fa-table',
+    },
     account: {
       path: '/mi-cuenta',
-      icon: '',
+      icon: 'fa fa-user',
     }
   },
   user: {
+    forms: {
+      path: '/formularios',
+      icon: 'fa fa-table',
+    },
     account: {
       path: '/mi-cuenta',
-      icon: '',
+      icon: 'fa fa-user',
     }
   }  
 };
