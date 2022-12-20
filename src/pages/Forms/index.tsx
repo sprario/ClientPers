@@ -25,9 +25,9 @@ const Forms: React.FunctionComponent = () => {
 					<hr className="my-4 md:min-w-full" />
 					<ul className=" flex flex-col list-none">
 					{formQuery.data && formQuery.data.map(form => (
-						<div key={form.formId} className="text-sm uppercase py-1 font-bold block text-blueGray-700 hover:text-blueGray-500">
+						<div key={form.id} className="text-sm uppercase py-1 font-bold block text-blueGray-700 hover:text-blueGray-500">
 							<i className="fa fa-table mr-2 text-sm text-blueGray-300"></i>
-							<Link to={`${form.formId}`}>{form.formId}</Link>
+							<Link to={`${form.id}`}>{form.id}</Link>
 						</div>
 						))}
 					</ul>

@@ -15,6 +15,6 @@ export interface FormsRequest {
 }
 
 export interface FormsResponse {
-	formId: string;
+	id: string;
 	creationAt: Date;
 }

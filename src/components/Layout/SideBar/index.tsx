@@ -1,6 +1,6 @@
 import { FunctionComponent, MouseEventHandler } from 'react';
 import { Link } from 'react-router-dom';
-import { AvatarMenu } from '@/components/layout';
+import AvatarMenu  from '../AvatarMenu';
 import persoft  from '@/assets/persoft.jpg';
 import persoftLogo from '@/assets/persoft-logo.png';
 
@@ -89,7 +89,7 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
             <ul className="md:flex-col px-5 md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
-                  to="dashboard/"
+                  to="/"
                   className="text-xs uppercase py-3 font-bold block text-pink-500 hover:text-pink-600"
                 >
                   <i

@@ -13,11 +13,15 @@ const MainRoutes: FunctionComponent = () => (
 			<Route path="/" element={<InnerContent />}>
 				<Route path="/" element={<Navigate replace to="dashboard" />} />
 				<Route path="/dashboard" element={<Dashboard />}>
+					<Route path="" element={<Home />} />
+					
 					<Route path="forms" element={<Forms />}>
 						<Route path=":id" element={<Form />} />
 					</Route>
-					<Route path="home" element={<Home />} />
-					<Route path="operations" element={<Operations />} />
+					
+					<Route path="operations" element={<Operations />} >
+
+					</Route>
 				</Route>
 			</Route>
 		</Route>

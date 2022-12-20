@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 
 const Footer: FunctionComponent = () => {
   return (
-    <div>
       <footer className="block py-4">
         <div className="container mx-auto px-4">
           <hr className="mb-4 border-b-1 border-blueGray-200" />
@@ -19,7 +18,6 @@ const Footer: FunctionComponent = () => {
           </div>
         </div>
       </footer>
-    </div>
   );
 };
 
