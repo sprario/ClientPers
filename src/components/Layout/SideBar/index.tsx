@@ -1,18 +1,25 @@
 import { FunctionComponent, MouseEventHandler } from 'react';
-import { Link } from 'react-router-dom';
-import AvatarMenu  from '../AvatarMenu';
+import { Link, NavLink, useMatch, useResolvedPath } from 'react-router-dom';
+import Avatar  from '../Avatar';
 import persoft  from '@/assets/persoft.jpg';
 import persoftLogo from '@/assets/persoft-logo.png';
+import { useEffect } from 'react';
 
 type RoutesProps = {
   routes : {
-    path: string;
-    icon?: string;
+    groups: {
+      title?: string;
+      path: string;
+      icon?: string;
+    }
   }[];
 };
 
 
 const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
+  let resolved = useResolvedPath(window.location.pathname);
+  let match = useMatch({ path: resolved.pathname, end: true });
+  console.log(match, 'MATCH');
   const toggleNavbar = (collapseID: string): void => {
     document?.getElementById(collapseID)?.classList?.toggle("hidden");
     document?.getElementById(collapseID)?.classList?.toggle("bg-white");
@@ -20,7 +27,7 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
     document?.getElementById(collapseID)?.classList?.toggle("py-3");
     document?.getElementById(collapseID)?.classList?.toggle("px-6");
   };
-  console.log(routes, 'RUTAs');
+  
   return (
     <>
       <nav
@@ -44,11 +51,10 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
             </Link>
           </div>
 
-
           <ul className="md:hidden items-center flex flex-wrap list-none">
             <li className="inline-block relative">
               <div className="items-center flex">
-                <AvatarMenu />
+                <Avatar />
               </div>
             </li>
           </ul>
@@ -88,25 +94,35 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
 
             <ul className="md:flex-col px-5 md:min-w-full flex flex-col list-none">
               <li className="items-center">
-                <Link
+                <NavLink
                   to="/"
-                  className="text-xs uppercase py-3 font-bold block text-pink-500 hover:text-pink-600"
+                  className={`text-xs uppercase py-3 font-bold block ${match ? 'text-pink-500 hover:text-pink-600' : 'text-blueGray-700 hover:text-blueGray-500'} `}
+                  // className={({ isActive }) => {
+                  //     //console.log(isActive, 'AVER');
+                  //     return isActive ? 'bg-green-500 font-bold' : 'bg-red-500 font-thin'
+                  //   }
+                  // }
                 >
                   <i
                     className="fa fa-home text-blueGray-300 mr-2 text-sm"
                   ></i>
                   Inicio
-                </Link>
+                </NavLink>
               </li>
 
               <li className="items-center">
-                <Link
+                <NavLink
                   to="forms"
-                  className="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"
+                  className={`text-xs uppercase py-3 font-bold block ${match ? 'text-pink-500 hover:text-pink-600' : 'text-blueGray-700 hover:text-blueGray-500'} `}
+                //   className={({ isActive }) => {
+                //     //console.log(isActive, 'AVER');
+                //     return isActive ? 'bg-green-500 font-bold' : 'bg-red-500 font-thin'
+                //   }
+                // }
                 >
                   <i className="fa fa-table mr-2 text-sm text-blueGray-300"></i>
                   Formularios
-                </Link>
+                </NavLink>
               </li>
 
               <li className="items-center">

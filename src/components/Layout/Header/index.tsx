@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import AvatarMenu from '../AvatarMenu';
+import Avatar from '../Avatar';
 
 
 const Header: FunctionComponent = () => {
@@ -9,8 +9,6 @@ const Header: FunctionComponent = () => {
     //     let element = event.target;
 
     //   }
-
-
 
     return (
       <nav
@@ -29,7 +27,7 @@ const Header: FunctionComponent = () => {
           <ul
             className="flex-col md:flex-row list-none items-center hidden md:flex cursor-pointer"
           >
-            <AvatarMenu />
+            <Avatar />
           </ul>
         </div>
      </nav>

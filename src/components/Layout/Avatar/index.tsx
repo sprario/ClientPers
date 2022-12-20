@@ -1,13 +1,12 @@
 import React, { FunctionComponent, useContext, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../context';
 
-
-
-
+// TODO: Mover al dashboard el método de cerrar sesion
 const AvatarMenu: FunctionComponent = () => {
 		const { userProfile } = useContext(UserContext);
 		const [ isVisible, setIsVisible ] = useState(true);
+    const navigate = useNavigate();
 
 		const getInitialsName = useMemo(() => 
 			userProfile ? userProfile?.name[0].toUpperCase() + userProfile?.lastName[0].toUpperCase() : 'UP'
@@ -17,6 +16,7 @@ const AvatarMenu: FunctionComponent = () => {
 
 		const closeSession = () => {
 			localStorage.clear();
+      navigate(0);
 		};
 	
 
@@ -37,7 +37,7 @@ const AvatarMenu: FunctionComponent = () => {
           </div>
         </div>
         <div
-          className={`${isVisible ? 'hidden' : ''} bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48`}
+          className={`${isVisible ? 'hidden' : ''} bg-white text-base z-50 py-2 list-none text-left rounded shadow-lg min-w-48`}
           id="user-dropdown"
         >
           <a

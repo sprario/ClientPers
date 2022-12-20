@@ -1,43 +1,61 @@
 const routes = {
   admin: {
-    forms: {
+    0: {
+      component: 'separarator',
+    },
+    1: {
+      text: 'Módulos',
+      component: 'h6',
+    },
+    2: {
       path: '/formularios',
       icon: 'fa fa-table',
+      component: 'link',
     },
-    account: {
+    3: {
       path: '/mi-cuenta',
       icon: 'fa fa-user',
+      component: 'link',
     }
   },
   clients: {
-    forms: {
+    0: {
+      component: 'separarator',
+    },
+    1: {
+      text: 'Usuarios',
+      component: 'h6',
+    },
+    2: {
       path: '/formularios',
       icon: 'fa fa-table',
+      component: 'link',
     },
-    account: {
+    3: {
       path: '/mi-cuenta',
       icon: 'fa fa-user',
+      component: 'link',
     }
   },
   user: {
-    forms: {
+    0: {
+      component: 'separarator',
+    },
+    1: {
+      text: 'Mi cuenta',
+      component: 'h6',
+    },
+    2: {
       path: '/formularios',
       icon: 'fa fa-table',
+      component: 'link',
     },
-    account: {
+    3: {
       path: '/mi-cuenta',
       icon: 'fa fa-user',
+      component: 'link',
     }
-  }  
+  },
 };
 
 export { routes };
-/*
-Inicio —-> /dashboard
-Formularios —> /forms
-Operaciones —> /operations
-——————————————————
-Clientes —> /clients (estaba pensando usar esta misma tanto para back office como alta de cliente .. si el role del que da de alta el
-Cliente es “client” cuando de de alta, al nuevo se le pone directamente “user” pero si el que da de alta es el admin, puede elegir con un dropdown
-
-*/
