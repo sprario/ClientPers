@@ -162,7 +162,7 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
 
               <li className="items-center">
                 <Link
-                  to="dashboard/adduser"
+                  to="adduser"
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                 >
                   <i

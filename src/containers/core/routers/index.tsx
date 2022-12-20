@@ -7,6 +7,7 @@ import PublicRoutes from './PublicRoutes';
 import { Forms, Home, Orders } from '@/pages';
 import Form from '@/pages/Forms/components/FormContainer';
 import OrderContainer from '@/pages/Orders/components/OrderContainer';
+import AddUser from '@/pages/AddUser';
 
 const MainRoutes: FunctionComponent = () => (
 	<Routes>
@@ -23,6 +24,8 @@ const MainRoutes: FunctionComponent = () => (
 					<Route path="orders" element={<Orders />} >
 						<Route path=":id" element={<OrderContainer />} />
 					</Route>
+
+					<Route path="adduser" element={<AddUser />} />
 
 					<Route path="profile" element={<Profile />} />
 				</Route>
