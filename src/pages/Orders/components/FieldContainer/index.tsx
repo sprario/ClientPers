@@ -13,11 +13,11 @@ const FieldContainer: FunctionComponent<FieldContainerProps> = ({ label, value }
     className="flex flex-row shadow rounded-lg border-zinc-500 my-5 px-2 py-2"
     >
       <div className='flex items-center'>
-        <p className='md:min-w-full border-red-600 text-blueGray-500 text-xs uppercase font-bold no-underline'>
+        <p className='md:min-w-full text-blueGray-500 text-xs uppercase font-bold no-underline'>
           {label + ':'} 
         </p>
       </div>
-      <div className='border-red-700 px-5 items-center'>
+      <div className='px-5 items-center'>
         <p className='text-sm'>{value}</p>
       </div>
       

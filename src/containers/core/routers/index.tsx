@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Dashboard, Login } from '@/pages';
+import { Dashboard, Login, Profile } from '@/pages';
 import InnerContent from './InnerContent';
 import ProtectedRoutes from './ProtectedRoutes';
 import PublicRoutes from './PublicRoutes';
-import { Forms, Home, Operations } from '@/pages';
+import { Forms, Home, Orders } from '@/pages';
 import Form from '@/pages/Forms/components/FormContainer';
+import OrderContainer from '@/pages/Orders/components/OrderContainer';
 
 const MainRoutes: FunctionComponent = () => (
 	<Routes>
@@ -19,9 +20,11 @@ const MainRoutes: FunctionComponent = () => (
 						<Route path=":id" element={<Form />} />
 					</Route>
 					
-					<Route path="operations" element={<Operations />} >
-
+					<Route path="orders" element={<Orders />} >
+						<Route path=":id" element={<OrderContainer />} />
 					</Route>
+
+					<Route path="profile" element={<Profile />} />
 				</Route>
 			</Route>
 		</Route>

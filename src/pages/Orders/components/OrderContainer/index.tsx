@@ -2,17 +2,17 @@ import React, { FunctionComponent, useContext } from 'react';
 import useQuery from '../../../../hooks/useQuery';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '@/context';
-import { getFormWithId } from '@/services/forms';
 import FieldContainer from '../FieldContainer';
 import Spinner from '@/components/Layout/Spinner';
+import { getOrderWithId } from '@/services/orders';
 
-const FormContainer: FunctionComponent =  () => {
+const OrderContainer: FunctionComponent =  () => {
 	const { id } = useParams();
 	const { userProfile } = useContext(UserContext);
 
-	const formQuery = useQuery(() => getFormWithId(userProfile?.id, id), { staleTime: 60000, cacheTime: 60000 });
+	const orderQuery = useQuery(() => getOrderWithId(userProfile?.id, id), { staleTime: 60000, cacheTime: 60000 });
 
-	const { data, isLoading } = formQuery;
+	const { data, isLoading } = orderQuery;
 
 
 	return (
@@ -34,4 +34,4 @@ const FormContainer: FunctionComponent =  () => {
 	);
 };
 
-export default FormContainer;
+export default OrderContainer;

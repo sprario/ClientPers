@@ -1,19 +1,20 @@
+import { formatLongDate, formatLongDateHour, parseDate, parseServiceDate } from '@/utils/formatters/date';
 import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 interface ColumnsTable {
   id: string;
-  creationAt:  string | Date;
+  creationAt:  string;
 }
 
 interface TableProps {
   data: ColumnsTable[] | undefined;
 }
 
-const TableForm: FunctionComponent<TableProps> = ({ data }: TableProps) => {
+const TableHome: FunctionComponent<TableProps> = ({ data }: TableProps) => {
 
   return (
-    <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+    <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6">
       <div className="block w-full overflow-x-auto">
         <table
           className="items-center bg-transparent w-full border-collapse "
@@ -47,7 +48,7 @@ const TableForm: FunctionComponent<TableProps> = ({ data }: TableProps) => {
                     key={idx.toString()}
                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                   >
-                    {form.creationAt.toLocaleString()}
+                    {formatLongDateHour(new Date(form.creationAt))}
                   </td>
                   
                 </tr>   
@@ -60,4 +61,4 @@ const TableForm: FunctionComponent<TableProps> = ({ data }: TableProps) => {
   );
 };
 
-export default TableForm;
+export default TableHome;

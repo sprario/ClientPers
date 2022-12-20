@@ -4,7 +4,7 @@ export interface Fields {
 	value: string;
 }
 
-export interface FormResponse {
+export interface OrderResponse {
 	id: string;
 	name: string;
 	fields: Fields[];
@@ -14,7 +14,7 @@ export interface FormsRequest {
 	userId: string;
 }
 
-export interface FormsResponse {
+export interface OrdersResponse {
 	id: string;
 	creationAt: string;
 }

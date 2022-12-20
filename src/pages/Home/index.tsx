@@ -1,32 +1,31 @@
 import React, { FunctionComponent, useContext } from 'react';
 import { PanelFit } from '@/components/Layout';
-import TableForm from './components/Table';
+import TableHome from './components/TableHome';
 import { getForms } from '@/services/forms';
 import { UserContext } from '@/context';
 import useQuery from '@/hooks/useQuery';
 import Spinner from '@/components/Layout/Spinner';
+import { getOrders } from '@/services/orders';
 
 const Home: FunctionComponent = () => {
 	const { userProfile } = useContext(UserContext);
 
 	const formQuery = useQuery(() => getForms(userProfile?.id), { staleTime: 60000, cacheTime: 60000 });
-	
-	const { data, isLoading, isSuccess } = formQuery;
+	const orderQuery = useQuery(() => getOrders(userProfile?.id), { staleTime: 60000, cacheTime: 60000 });
 
-	const tableData = data?.slice( 0, 5) || [];
+	const tableFormData = formQuery.data?.slice( 0, 5) || [];
+	const tableOrderData = orderQuery.data?.slice( 0, 5) || [];
 
-	console.log(tableData);
-
+	console.log(orderQuery.data)
 
 	return (
 		<div className='flex flex-row w-full'>
-			<Spinner isfullPage={false} loading={isLoading} />
+			<Spinner isfullPage={false} loading={formQuery.isLoading || orderQuery.isLoading} />
 			<PanelFit title='Formularios'>  
-				{isSuccess	&&	<TableForm data={tableData}/>}
+				{formQuery.isSuccess	&&	<TableHome data={tableFormData}/>}
 			</PanelFit>
 			<PanelFit title='Ordenes de Trabajo'>
-				Ultimas 5 Ordenes
-				{/* <Table /> */}
+				{orderQuery.isSuccess &&  <TableHome data={tableOrderData}/>}
 			</PanelFit>
 		</div>
 	);
