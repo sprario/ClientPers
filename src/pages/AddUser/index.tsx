@@ -2,41 +2,32 @@ import { UserContext } from '@/context';
 import React, { FunctionComponent, useContext, useMemo } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { AddUserRequest } from '@/services/addUsers/types';
-import { useNavigate } from 'react-router-dom';
 import useMutation from '@/hooks/useMutation';
 import { addUserRequest } from '@/services/addUsers';
 
 
 const AddUser: FunctionComponent = () => {
   const { userProfile } = useContext(UserContext);
-  const { register, handleSubmit, control, reset } = useForm<AddUserRequest>();
+  const { register, handleSubmit, control, reset } = useForm<AddUserRequest>({ defaultValues: { role: 'user' } });
 
   const email = useWatch({ name: 'email', control });
 	const name = useWatch({ name: 'name', control });
   const lastName = useWatch({ name: 'lastName', control });
   const role = useWatch({ name: 'role', control });
 
-	const navigate = useNavigate();
 
-    const createLoginMutation = useMutation(addUserRequest, {
+  const createAddUserMutation = useMutation(addUserRequest, {
       showLoadingBackdrop: true,
     });
 	
 	const isDisabled = useMemo(() => !!email && !!name, [email, name]);
 
-  function showDropdownOptions() {
-    document.getElementById("options").classList.toggle("hidden");
-    document.getElementById("arrow-up").classList.toggle("hidden");
-    document.getElementById("arrow-down").classList.toggle("hidden");
-}
-
 	const onSubmit = handleSubmit(() => {
-		createLoginMutation
+		createAddUserMutation
 			.mutateAsync({ email, name, lastName, role })
 			.then(response => {
 				alert('Usuario agregado con exito!')
         reset();
-        navigate('');
 			})
 			.catch(err => {
 				return err.message;
@@ -105,12 +96,14 @@ const AddUser: FunctionComponent = () => {
                     </label>
                     <input
                       type="text"
+
                       {...register("lastName")}
                       className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-6/12 px-4">
+                { userProfile?.role === 'admin' && 
+                  <div className="w-full lg:w-6/12 px-4">
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-slate-600 text-xs font-bold mb-2"
@@ -118,28 +111,13 @@ const AddUser: FunctionComponent = () => {
                     >
                       Rol
                     </label>
-                    <div className="flex flex-row justify-center min-h-screen pt-4 bg-gray-100 min-w-screen">
-                      <div className="flex-none p-2">
-                        <button onClick={showDropdownOptions} className="flex flex-row justify-between w-48 px-2 py-2 text-gray-700 bg-white border-2 border-white rounded-md shadow focus:outline-none focus:border-blue-600">
-                          <span className="select-none">Select an item</span>
-
-                          <svg id="arrow-down" className="hidden w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-                          <svg id="arrow-up" className="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
-                        </button>
-                    <div id="options" className="hidden w-48 py-2 mt-2 bg-white rounded-lg shadow-xl">
-                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">user</a>
-                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">client</a>
-                        <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white">admin</a>
-                    </div>
-    </div>
-</div>
                     <input
                       type="text"
                       {...register("role")}
                       className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     />
                   </div>
-                </div>
+                </div>}
               </div>
 
               <div className='mt-20  flex justify-end'>

@@ -22,10 +22,10 @@ const Home: FunctionComponent = () => {
 		<div className='flex flex-row w-full'>
 			<Spinner isfullPage={false} loading={formQuery.isLoading || orderQuery.isLoading} />
 			<PanelFit title='Formularios'>  
-				{formQuery.isSuccess	&&	<TableHome data={tableFormData}/>}
+				{formQuery.isSuccess	&&	<TableHome type='forms' data={tableFormData}/>}
 			</PanelFit>
 			<PanelFit title='Ordenes de Trabajo'>
-				{orderQuery.isSuccess &&  <TableHome data={tableOrderData}/>}
+				{orderQuery.isSuccess &&  <TableHome type='orders' data={tableOrderData}/>}
 			</PanelFit>
 		</div>
 	);

@@ -9,9 +9,10 @@ interface ColumnsTable {
 
 interface TableProps {
   data: ColumnsTable[] | undefined;
+  type?: 'forms' | 'orders';
 }
 
-const TableHome: FunctionComponent<TableProps> = ({ data }: TableProps) => {
+const TableHome: FunctionComponent<TableProps> = ({ data, type = 'forms' }: TableProps) => {
 
   return (
     <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6">
@@ -42,7 +43,7 @@ const TableHome: FunctionComponent<TableProps> = ({ data }: TableProps) => {
                   <td
                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                   >
-                   <Link key={form.id}  to={`forms/${form.id}`}> {form.id}</Link> 
+                   <Link key={form.id}  to={`${type}/${form.id}`}> {form.id}</Link> 
                   </td>
                   <td
                     key={idx.toString()}
