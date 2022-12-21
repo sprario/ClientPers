@@ -54,12 +54,23 @@ const routes = {
       },
     },
     {
-      users: {
+      adduser: {
         path: 'adduser',
         label: 'Agregar Usuario',
         icon: 'fa fa-user-plus',
         component: 'link',
         id: 'adduser',
+      },
+    },
+    {
+      break: {
+        component: 'separator',
+      },
+    },
+    {
+      title: {
+        text: 'Cuenta',
+        component: 'h6',
       },
     },
     {
