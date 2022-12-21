@@ -29,7 +29,7 @@ const FormContainer: FunctionComponent =  () => {
 			<div className='w-full'>
 			{data &&
 				data.fields.map(field => (
-				  <FieldContainer type={field.type} label={field.label} value={field.value} />
+				  <FieldContainer key={field.value} type={field.type} label={field.label} value={field.value} />
 				))}
 			</div>
 		</div>

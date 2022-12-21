@@ -47,7 +47,7 @@ const routes = {
     {
       users: {
         path: 'users',
-        label: 'users',
+        label: 'Lista de usuarios',
         icon: 'fa fa-users',
         component: 'link',
         id: 'users',
@@ -56,10 +56,19 @@ const routes = {
     {
       users: {
         path: 'adduser',
-        label: 'adduser',
+        label: 'Agregar Usuario',
         icon: 'fa fa-user-plus',
         component: 'link',
         id: 'adduser',
+      },
+    },
+    {
+      profile: {
+        path: 'profile',
+        label: ' Mi perfil',
+        icon: 'fa fa-user',
+        component: 'link',
+        id: 'profile',
       },
     },
   ],

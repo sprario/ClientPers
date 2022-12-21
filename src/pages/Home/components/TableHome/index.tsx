@@ -23,13 +23,13 @@ const TableHome: FunctionComponent<TableProps> = ({ data, type = 'forms' }: Tabl
           <thead>
             <tr>
                   <th
-                    key={'id'}
+                    key={`id-${type}`}
                     className="px-6 bg-blueGray-200 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                   >
                     Id
                   </th>
                   <td
-                    key={'fecha'}
+                    key={`date-${type}`}
                     className="px-6 bg-blueGray-200 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold"
                   >
                     Fecha
@@ -39,14 +39,13 @@ const TableHome: FunctionComponent<TableProps> = ({ data, type = 'forms' }: Tabl
           <tbody>
             {
               data && data.map((form, idx) => (
-                <tr>
+                <tr key={form.id}>
                   <td
                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                   >
-                   <Link key={form.id}  to={`${type}/${form.id}`}> {form.id}</Link> 
+                   <Link   to={`${type}/${form.id}`}> {form.id}</Link> 
                   </td>
                   <td
-                    key={idx.toString()}
                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                   >
                     {formatLongDateHour(new Date(form.creationAt))}

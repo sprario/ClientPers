@@ -1,10 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-interface indexProps {
-  prop: string;
-}
-
-const index: FunctionComponent = ({ }: indexProps ) => {
+const Users: FunctionComponent = () => {
 
   return (
     <div>
@@ -13,4 +9,4 @@ const index: FunctionComponent = ({ }: indexProps ) => {
   );
 };
 
-export default index;
+export default Users;

@@ -37,10 +37,10 @@ const FieldContainer: FunctionComponent<FieldContainerProps> = ({ label, value, 
   
   return (
     <div
-    key={label}
+    
     className="flex flex-row shadow rounded-lg border-zinc-500 my-5 px-2 py-2"
     >
-      <div className='flex items-center'>
+      <div className='flex items-center' key={label}>
         <p className='md:min-w-full border-red-600 text-blueGray-500 text-xs uppercase font-bold no-underline'>
           {label + ':'} 
         </p>

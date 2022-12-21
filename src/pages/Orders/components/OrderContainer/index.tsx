@@ -27,7 +27,7 @@ const OrderContainer: FunctionComponent =  () => {
 			<div className='w-full'>
 			{data &&
 				data.fields.map(field => (
-				  <FieldContainer label={field.label} value={field.value} />
+				  <FieldContainer key={field.value} label={field.label} value={field.value} />
 				))}
 			</div>
 		</div>

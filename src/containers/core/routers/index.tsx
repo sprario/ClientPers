@@ -8,6 +8,7 @@ import { Forms, Home, Orders } from '@/pages';
 import Form from '@/pages/Forms/components/FormContainer';
 import OrderContainer from '@/pages/Orders/components/OrderContainer';
 import AddUser from '@/pages/AddUser';
+import Users from '@/pages/Users';
 
 const MainRoutes: FunctionComponent = () => (
 	<Routes>
@@ -26,6 +27,8 @@ const MainRoutes: FunctionComponent = () => (
 					</Route>
 
 					<Route path="adduser" element={<AddUser />} />
+					
+					<Route path="users" element={<Users />} />
 
 					<Route path="profile" element={<Profile />} />
 				</Route>
