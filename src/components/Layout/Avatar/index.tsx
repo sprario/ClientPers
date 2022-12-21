@@ -45,7 +45,8 @@ const AvatarMenu: FunctionComponent = () => {
             className="text-right text-sm px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             >x</a>
           <Link
-            to="/profile"
+            to="profile"
+            onClick={handleChangeMenu}
             className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           >
             Ver Perfil
