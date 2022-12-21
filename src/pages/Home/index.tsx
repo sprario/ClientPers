@@ -16,8 +16,6 @@ const Home: FunctionComponent = () => {
 	const tableFormData = formQuery.data?.slice( 0, 5) || [];
 	const tableOrderData = orderQuery.data?.slice( 0, 5) || [];
 
-	console.log(orderQuery.data)
-
 	return (
 		<div className='flex flex-row w-full'>
 			<Spinner isfullPage={false} loading={formQuery.isLoading || orderQuery.isLoading} />

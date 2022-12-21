@@ -1,9 +1,9 @@
-import { FunctionComponent, MouseEventHandler } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { Link, NavLink, useMatch, useResolvedPath } from 'react-router-dom';
 import Avatar  from '../Avatar';
 import persoft  from '@/assets/persoft.jpg';
 import persoftLogo from '@/assets/persoft-logo.png';
-import { useEffect } from 'react';
+import { builtinModules } from 'module';
 
 type RoutesProps = {
   routes : {
@@ -17,9 +17,7 @@ type RoutesProps = {
 
 
 const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
-  let resolved = useResolvedPath(window.location.pathname);
-  let match = useMatch({ path: resolved.pathname, end: true });
-  console.log(match, 'MATCH');
+  const [page, setPage] = useState<string>('home');
   const toggleNavbar = (collapseID: string): void => {
     document?.getElementById(collapseID)?.classList?.toggle("hidden");
     document?.getElementById(collapseID)?.classList?.toggle("bg-white");
@@ -27,6 +25,37 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
     document?.getElementById(collapseID)?.classList?.toggle("py-3");
     document?.getElementById(collapseID)?.classList?.toggle("px-6");
   };
+  
+  const handleClcickSideBar = (page: string) => {
+    console.log(page);
+    setPage(page);
+  };
+  const compsRender = (item: any) => {
+    const comp = {
+      h6: (
+        <h6
+          className="md:min-w-full px-0 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+        >
+          {item.text}
+        </h6>
+      ),
+      separator: <hr className="my-4 md:min-w-full" />,
+      link: (
+            <NavLink
+              to={`${item.path}`}
+              className={`text-xs uppercase py-3 font-bold block ${page === item.id ? 'text-pink-500 hover:text-pink-600' : 'text-blueGray-700 hover:text-blueGray-500'} `}
+              onClick={() => handleClcickSideBar(item.id)}
+            >
+              <i
+                className={`${item.icon} text-blueGray-300 mr-2 text-sm`}
+              ></i>
+              {item.label}
+            </NavLink>
+      ),
+    }
+
+    return comp[item.component];
+  }
   
   return (
     <>
@@ -86,115 +115,14 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
             </div>
             <img src={persoft} alt='persoft integraciones'/>
             <hr className="my-4 md:min-w-full" />
-            <h6
-              className="md:min-w-full px-5 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
-            >
-              Módulos
-            </h6>
-
             <ul className="md:flex-col px-5 md:min-w-full flex flex-col list-none">
-              <li className="items-center">
-                <NavLink
-                  to="/"
-                  className={`text-xs uppercase py-3 font-bold block ${match ? 'text-pink-500 hover:text-pink-600' : 'text-blueGray-700 hover:text-blueGray-500'} `}
-                  // className={({ isActive }) => {
-                  //     //console.log(isActive, 'AVER');
-                  //     return isActive ? 'bg-green-500 font-bold' : 'bg-red-500 font-thin'
-                  //   }
-                  // }
-                >
-                  <i
-                    className="fa fa-home text-blueGray-300 mr-2 text-sm"
-                  ></i>
-                  Inicio
-                </NavLink>
-              </li>
-
-              <li className="items-center">
-                <NavLink
-                  to="forms"
-                  className={`text-xs uppercase py-3 font-bold block ${match ? 'text-pink-500 hover:text-pink-600' : 'text-blueGray-700 hover:text-blueGray-500'} `}
-                //   className={({ isActive }) => {
-                //     //console.log(isActive, 'AVER');
-                //     return isActive ? 'bg-green-500 font-bold' : 'bg-red-500 font-thin'
-                //   }
-                // }
-                >
-                  <i className="fa fa-table mr-2 text-sm text-blueGray-300"></i>
-                  Formularios
-                </NavLink>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  to="orders"
-                  className="text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500"
-                >
-                  <i
-                    className="fa fa-file-text mr-2 text-sm text-blueGray-300"
-                  ></i>
-                  Ordenes de Trabajo
-                </Link>
-              </li>
-            </ul>
-
-            <hr className="my-4 md:min-w-full" />
-            <h6
-              className="md:min-w-full px-5 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
-            >
-              Usuarios
-            </h6>
-           {/* //TODO: Setear para que este menú se muestre segun perfil de usuario */}
-            <ul
-              className="md:flex-col md:min-w-full px-5 flex flex-col list-none md:mb-4"
-            >
-              <li className="items-center">
-                <Link
-                  to="users"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                >
-                  <i
-                    className="fa fa-users text-blueGray-300 mr-2 text-sm"
-                  ></i>
-                  Lista de usuarios
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  to="adduser"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                >
-                  <i
-                    className="fa fa-user-plus text-blueGray-300 mr-2 text-sm"
-                  ></i>
-                  Nuevo Usuario
-                </Link>
-              </li>
-            </ul>
-
-            <hr className="my-4 md:min-w-full " />
-            <h6
-              className="md:min-w-full px-5 text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
-            >
-              Mi cuenta
-            </h6>
-
-            <ul
-              className="md:flex-col md:min-w-full px-5 flex flex-col list-none md:mb-4"
-            >
-
-              <li className="items-center">
-                <Link
-                  to="profile"
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                >
-                  <i
-                    className="fa fa-user text-blueGray-300 mr-2 text-sm"
-                  ></i>
-                  Perfil
-                </Link>
-              </li>
+              {Object.entries(routes).map(([, val]) => {
+                return Object.keys(val).map((i, ) => {
+                  return (
+                    <li className="items-center" key={i}>{compsRender(val[i])}</li>
+                  );
+                })
+              })}
             </ul>
           </div>
         </div>

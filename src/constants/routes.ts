@@ -1,61 +1,68 @@
 const routes = {
-  admin: {
-    0: {
-      component: 'separarator',
+  admin: [
+    {
+      title: {
+        text: 'Módulos',
+        component: 'h6',
+      },
     },
-    1: {
-      text: 'Módulos',
-      component: 'h6',
+    {
+      home: {
+        path: '/',
+        label: 'Inicio',
+        icon: 'fa fa-home',
+        component: 'link',
+        id: 'home',
+      },
     },
-    2: {
-      path: '/formularios',
-      icon: 'fa fa-table',
-      component: 'link',
+    {
+      forms: {
+        path: 'forms',
+        label: 'forms',
+        icon: 'fa fa-table',
+        component: 'link',
+        id: 'forms',
+      },
     },
-    3: {
-      path: '/mi-cuenta',
-      icon: 'fa fa-user',
-      component: 'link',
-    }
-  },
-  clients: {
-    0: {
-      component: 'separarator',
+    {
+      orders: {
+        path: 'orders',
+        label: 'orders',
+        icon: 'fa fa-file-text',
+        component: 'link',
+        id: 'orders',
+      },
     },
-    1: {
-      text: 'Usuarios',
-      component: 'h6',
+    {
+      break: {
+        component: 'separator',
+      },
     },
-    2: {
-      path: '/formularios',
-      icon: 'fa fa-table',
-      component: 'link',
+    {
+      title: {
+        text: 'Usuarios',
+        component: 'h6',
+      },
     },
-    3: {
-      path: '/mi-cuenta',
-      icon: 'fa fa-user',
-      component: 'link',
-    }
-  },
-  user: {
-    0: {
-      component: 'separarator',
+    {
+      users: {
+        path: 'users',
+        label: 'users',
+        icon: 'fa fa-users',
+        component: 'link',
+        id: 'users',
+      },
     },
-    1: {
-      text: 'Mi cuenta',
-      component: 'h6',
+    {
+      users: {
+        path: 'adduser',
+        label: 'adduser',
+        icon: 'fa fa-user-plus',
+        component: 'link',
+        id: 'adduser',
+      },
     },
-    2: {
-      path: '/formularios',
-      icon: 'fa fa-table',
-      component: 'link',
-    },
-    3: {
-      path: '/mi-cuenta',
-      icon: 'fa fa-user',
-      component: 'link',
-    }
-  },
+  ],
 };
 
 export { routes };

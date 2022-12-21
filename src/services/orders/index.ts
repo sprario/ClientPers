@@ -9,8 +9,6 @@ const SERVICE_BASE_URL = `${API_URL}/orders/`;
 export const getOrders = ( userId?: string ): FetchServiceEndpoint<OrdersResponse[]> => {
 	const url = `${SERVICE_BASE_URL}${userId}/`;
 
-	console.log('entroooooo')
-
 	return {
 		keys: ['orders-request'],
 		fetcher: options =>
