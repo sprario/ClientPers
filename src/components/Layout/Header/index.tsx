@@ -18,7 +18,7 @@ const Header: FunctionComponent = () => {
           className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4"
         >
           <Link
-            className="text-gray-600 text-sm uppercase hidden lg:inline-block font-semibold"
+            className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
             to="/"
             >Persoft Integraciones
           </Link>          

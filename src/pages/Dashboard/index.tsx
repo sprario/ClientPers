@@ -14,7 +14,7 @@ const Dashboard: FunctionComponent = () => {
       <div id="root">
         <SideBar routes={RoutesSideBar[userProfile?.role]} />
         <div className="relative md:ml-64 bg-blueGray-50 h-screen">       
-          <div className="relative bg-gray-200  md:pt-32 pb-32 pt-12">
+          <div className="relative bg-[#3373B5]  md:pt-32 pb-32 pt-12">
             <Header />
           </div>
           <div className="px-4 md:px-10 h-full mx-auto w-full -m-24">

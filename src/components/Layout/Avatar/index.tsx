@@ -28,10 +28,10 @@ const AvatarMenu: FunctionComponent = () => {
         >
           <div className="items-center flex">
             <span
-              className={`${isVisible ? '' : 'hidden'} w-12 h-12 text-white bg-blue-600 inline-flex items-center justify-center rounded-full`}
+              className={`${isVisible ? '' : 'hidden'} w-12 h-12 text-white bg-[#C0D467] inline-flex items-center justify-center rounded-full`}
             >
-              <div className="inline-flex overflow-hidden relative justify-center items-center w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
-                  <span className="font-large text-gray-600 dark:text-gray-300">{getInitialsName}</span>
+              <div className="inline-flex overflow-hidden relative justify-center items-center w-10 h-10 bg-[#3373B5] rounded-full">
+                  <span className="font-large text-white">{getInitialsName}</span>
               </div>
             </span>
           </div>

@@ -26,10 +26,10 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
     document?.getElementById(collapseID)?.classList?.toggle("px-6");
   };
   
-  const handleClcickSideBar = (page: string) => {
-    console.log(page);
+  const handleClickSideBar = (page: string) => {
     setPage(page);
   };
+
   const compsRender = (item: any) => {
     const comp = {
       h6: (
@@ -43,8 +43,8 @@ const SideBar: FunctionComponent<RoutesProps> = ({ routes }) => {
       link: (
             <NavLink
               to={`${item.path}`}
-              className={`text-xs uppercase py-3 font-bold block ${page === item.id ? 'text-pink-500 hover:text-pink-600' : 'text-blueGray-700 hover:text-blueGray-500'} `}
-              onClick={() => handleClcickSideBar(item.id)}
+              className={`text-xs uppercase py-3 font-bold block ${page === item.id ? 'text-[#3373B5] hover:text-[#3373B7]' : 'text-blueGray-700 hover:text-blueGray-500'} `}
+              onClick={() => handleClickSideBar(item.id)}
             >
               <i
                 className={`${item.icon} text-blueGray-300 mr-2 text-sm`}
