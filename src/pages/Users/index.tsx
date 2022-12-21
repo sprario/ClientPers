@@ -4,7 +4,7 @@ const Users: FunctionComponent = () => {
 
   return (
     <div>
-      Custom componente by Santi
+      Lista de usuarios
     </div>
   );
 };
