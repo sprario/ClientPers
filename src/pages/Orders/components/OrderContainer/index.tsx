@@ -10,7 +10,7 @@ const OrderContainer: FunctionComponent =  () => {
 	const { id } = useParams();
 	const { userProfile } = useContext(UserContext);
 
-	const orderQuery = useQuery(() => getOrderWithId(userProfile?.id, id), { staleTime: 60000, cacheTime: 60000 });
+	const orderQuery = useQuery(() => getOrderWithId(userProfile?._id, id), { staleTime: 60000, cacheTime: 60000 });
 
 	const { data, isLoading } = orderQuery;
 

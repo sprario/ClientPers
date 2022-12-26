@@ -10,8 +10,8 @@ import { getOrders } from '@/services/orders';
 const Home: FunctionComponent = () => {
 	const { userProfile } = useContext(UserContext);
 
-	const formQuery = useQuery(() => getForms(userProfile?.id), { staleTime: 60000, cacheTime: 60000 });
-	const orderQuery = useQuery(() => getOrders(userProfile?.id), { staleTime: 60000, cacheTime: 60000 });
+	const formQuery = useQuery(() => getForms(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
+	const orderQuery = useQuery(() => getOrders(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
 
 	const tableFormData = formQuery.data?.slice( 0, 5) || [];
 	const tableOrderData = orderQuery.data?.slice( 0, 5) || [];

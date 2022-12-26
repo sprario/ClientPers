@@ -22,7 +22,8 @@ const Login: FunctionComponent = () => {
 	const navigate = useNavigate();
 
     const createLoginMutation = useMutation(loginRequest, {
-      showLoadingBackdrop: true,
+        showLoadingBackdrop: true,
+        handleErrors: false,
     });
 	
 	const isDisabled = useMemo(() => !!email && !!password, [email, password]);
@@ -80,6 +81,9 @@ const Login: FunctionComponent = () => {
                   <div className="text-blueGray-400 text-center mb-3 font-bold">
                     <small>Iniciar Sesión</small>
                   </div>
+                  {error && <div className="text-red-400 text-center mb-3 font-bold">
+                    <small>Por favor verifique los datos ingresados</small>
+                  </div>}
                   <form onSubmit={onSubmit}>
                     <div className="relative w-full mb-3">
                       <label

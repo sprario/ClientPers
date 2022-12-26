@@ -9,7 +9,7 @@ import { getOrders } from '@/services/orders';
 const Orders: React.FunctionComponent = () => {
 	const { userProfile } = useContext(UserContext);
 
-	const orderQuery = useQuery(() => getOrders(userProfile?.id), { staleTime: 60000, cacheTime: 60000 });
+	const orderQuery = useQuery(() => getOrders(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
 
 	const { data, isLoading } = orderQuery
 

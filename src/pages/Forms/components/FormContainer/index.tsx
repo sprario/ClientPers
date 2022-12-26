@@ -10,7 +10,7 @@ const FormContainer: FunctionComponent =  () => {
 	const { id } = useParams();
 	const { userProfile } = useContext(UserContext);
 
-	const formQuery = useQuery(() => getFormWithId(userProfile?.id, id), { staleTime: 60000, cacheTime: 60000 });
+	const formQuery = useQuery(() => getFormWithId(userProfile?._id, id), { staleTime: 60000, cacheTime: 60000 });
 
 	const { data, isLoading } = formQuery;
 

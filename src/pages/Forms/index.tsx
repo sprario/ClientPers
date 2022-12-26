@@ -9,7 +9,7 @@ import Spinner from '@/components/Layout/Spinner';
 const Forms: React.FunctionComponent = () => {
 	const { userProfile } = useContext(UserContext);
 
-	const formQuery = useQuery(() => getForms(userProfile?.id), { staleTime: 60000, cacheTime: 60000 });
+	const formQuery = useQuery(() => getForms(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
 
 	const { data, isLoading } = formQuery
 
