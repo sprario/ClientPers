@@ -33,9 +33,8 @@ const Login: FunctionComponent = () => {
 	const onSubmit = handleSubmit(() => {
 		createLoginMutation
 			.mutateAsync({ email, password })
-			.then(async response => {
-        console.log(response)
-				const { accessToken, userProfile } = await response.data;
+			.then(response => {
+				const { accessToken, userProfile } = response.data;
 				localStorage.setItem('accessToken', accessToken);
 				setUserProfile(userProfile);
 				navigate('/dashboard');
