@@ -9,7 +9,7 @@ const AvatarMenu: FunctionComponent = () => {
     const navigate = useNavigate();
 
 		const getInitialsName = useMemo(() => 
-			userProfile ? userProfile?.name[0].toUpperCase() + userProfile?.lastName[0].toUpperCase() : 'UP'
+			'UP'  // userProfile ? userProfile?.name[0].toUpperCase() + userProfile?.lastName[0].toUpperCase() : 'UP'
 		, [userProfile]);
 
 		const handleChangeMenu = () => setIsVisible(!isVisible)

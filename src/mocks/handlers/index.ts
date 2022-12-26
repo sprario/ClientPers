@@ -3,6 +3,6 @@ import loginHandlers from './login';
 import formsHandlers from './forms';
 import orderHandlers from './orders';
 
-const handlers = [...addUserHandlers, ...loginHandlers, ...formsHandlers, ...orderHandlers];
+const handlers = [...addUserHandlers, ...formsHandlers, ...orderHandlers];
 
 export default handlers;

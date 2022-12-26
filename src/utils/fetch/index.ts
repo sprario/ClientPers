@@ -23,7 +23,7 @@ async function fetchCore({
 }: FetchServiceParams): Promise<Response> {
 	const fetchConfig: RequestInit = {
 		method,
-		credentials: withCredentials ? 'include' : 'same-origin', // withCredentials
+		// credentials: withCredentials ? 'include' : 'same-origin', // withCredentials
 		headers: {
 			'Content-Type': 'application/json',
 			Accept: 'application/json, text/plain, */*',

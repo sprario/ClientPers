@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext, useMemo, useState } from 'react';
+import React, { FunctionComponent, useContext, useEffect, useMemo, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginRequest } from '@/services/login';
@@ -27,11 +27,14 @@ const Login: FunctionComponent = () => {
 	
 	const isDisabled = useMemo(() => !!email && !!password, [email, password]);
 
+  
+
 	const onSubmit = handleSubmit(() => {
 		createLoginMutation
 			.mutateAsync({ email, password })
-			.then(response => {
-				const { accessToken, userProfile } = response;
+			.then(async response => {
+        console.log(response)
+				const { accessToken, userProfile } = await response.data;
 				localStorage.setItem('accessToken', accessToken);
 				setUserProfile(userProfile);
 				navigate('/dashboard');
@@ -40,6 +43,18 @@ const Login: FunctionComponent = () => {
 				setError(err);
 			});
 	});
+
+  useEffect(() => {
+    const listener = (event: { code: string; preventDefault: () => void; }) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        onSubmit();
+      }
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, []);
 
   return (
     <div className="text-blueGray-700 antialiased">

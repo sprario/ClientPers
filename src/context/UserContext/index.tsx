@@ -17,9 +17,7 @@ const UserContext = createContext<UserContextProps>({
 });
 
 function UserProvider({ children }: UserProviderProps): JSX.Element {
-	const [userProfile, setUserProfile] = React.useState<UserProfile>(
-		responseLoginSuccess.userProfile
-	);
+	const [userProfile, setUserProfile] = React.useState<UserProfile>();
 
 	return (
 		<UserContext.Provider
