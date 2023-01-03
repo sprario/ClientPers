@@ -21,6 +21,7 @@ async function fetchCore({
 	data,
 	accessToken,
 }: FetchServiceParams): Promise<Response> {
+	const token = localStorage.getItem('accessToken');
 	const fetchConfig: RequestInit = {
 		method,
 		// credentials: withCredentials ? 'include' : 'same-origin', // withCredentials
@@ -28,7 +29,7 @@ async function fetchCore({
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Origin': '*',
 			Accept: 'application/json, text/plain, */*',
-			Authorization: `Bearer ${accessToken}`,
+			Authorization: `Bearer ${accessToken || token}`,
 			...headers,
 		},
 	};

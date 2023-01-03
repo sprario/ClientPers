@@ -14,17 +14,19 @@ const AddUser: FunctionComponent = () => {
 	const name = useWatch({ name: 'name', control });
   const lastName = useWatch({ name: 'lastName', control });
   const role = useWatch({ name: 'role', control });
+  const API_KEY = useWatch({ name: 'API_KEY', control });
 
 
   const createAddUserMutation = useMutation(addUserRequest, {
       showLoadingBackdrop: true,
+      handleErrors: false
     });
 	
 	const isDisabled = useMemo(() => !!email && !!name, [email, name]);
 
 	const onSubmit = handleSubmit(() => {
 		createAddUserMutation
-			.mutateAsync({ email, name, lastName, role })
+			.mutateAsync({ email, name, lastName, role, API_KEY })
 			.then(response => {
 				alert('Usuario agregado con exito!')
         reset();
@@ -102,7 +104,6 @@ const AddUser: FunctionComponent = () => {
                     />
                   </div>
                 </div>
-                { userProfile?.role === 'admin' && 
                   <div className="w-full lg:w-6/12 px-4">
                   <div className="relative w-full mb-3">
                     <label
@@ -117,7 +118,24 @@ const AddUser: FunctionComponent = () => {
                       className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     />
                   </div>
-                </div>}
+                </div>
+              </div>
+
+                
+                <div className="w-full lg:w-6/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-slate-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    Api Key
+                  </label>
+                  <input
+                    type="text"
+                    {...register("API_KEY")}
+                    className="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  />
+                </div>
               </div>
 
               <div className='mt-20  flex justify-end'>
