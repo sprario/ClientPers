@@ -13,12 +13,21 @@ const Home: FunctionComponent = () => {
 	const formQuery = useQuery(() => getForms(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
 	const orderQuery = useQuery(() => getOrders(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
 
+	const arraySorted = formQuery.data?.data.sort((a, b) => {
+			var keyA = new Date(a.created),
+			keyB = new Date(b.created);
+
+			if (keyA < keyB) return -1;
+			if (keyA > keyB) return 1;
+			return 0;
+	})
+
 
 	return (
 		<div className='flex flex-row w-full'>
 			<Spinner isfullPage={false} loading={formQuery.isLoading || orderQuery.isLoading} />
 			<PanelFit title='Formularios'>  
-				{formQuery.isSuccess	&&	<TableHome type='forms' data={formQuery.data.data}/>}
+				{formQuery.isSuccess	&&	<TableHome type='forms' data={arraySorted}/>}
 			</PanelFit>
 			{/* <PanelFit title='Ordenes de Trabajo'>
 				{orderQuery.isSuccess &&  <TableHome type='orders' data={tableOrderData}/>}

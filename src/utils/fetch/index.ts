@@ -26,6 +26,7 @@ async function fetchCore({
 		// credentials: withCredentials ? 'include' : 'same-origin', // withCredentials
 		headers: {
 			'Content-Type': 'application/json',
+			'Access-Control-Allow-Origin': '*',
 			Accept: 'application/json, text/plain, */*',
 			Authorization: `Bearer ${accessToken}`,
 			...headers,
