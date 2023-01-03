@@ -23,7 +23,7 @@ const Forms: React.FunctionComponent = () => {
 	return (
 		<div className="flex w-full h-auto">
 			{isLoading && <Spinner size='medium' loading={true} isfullPage={false} />}
-			<div className='w-2/5'>
+			<div className='w-1/5'>
 				<nav className="w-full bg-silver-400">
 					<h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 no-underline">
 						Formularios
@@ -46,6 +46,7 @@ const Forms: React.FunctionComponent = () => {
 								selected={endDate}
 								onChange={(date) => setEndDate(date)}
 								selectsEnd
+								title='Hasta'
 								dateFormat="dd/MM/yyyy"
 								startDate={startDate}
 								endDate={endDate}

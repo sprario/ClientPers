@@ -1,6 +1,8 @@
 import React, { FunctionComponent, useContext, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../context';
+import useQuery from '@/hooks/useQuery';
+import { logOutRequest } from '@/services/logout';
 
 // TODO: Mover al dashboard el método de cerrar sesion
 const AvatarMenu: FunctionComponent = () => {
@@ -9,12 +11,15 @@ const AvatarMenu: FunctionComponent = () => {
     const navigate = useNavigate();
 
 		const getInitialsName = useMemo(() => 
-			'UP'  // userProfile ? userProfile?.name[0].toUpperCase() + userProfile?.lastName[0].toUpperCase() : 'UP'
+			userProfile ? userProfile?.name[0].toUpperCase() + userProfile?.lastName[0].toUpperCase() : 'UP'
 		, [userProfile]);
+
+    const logOutQuery = useQuery(() => logOutRequest(), { enabled: false});
 
 		const handleChangeMenu = () => setIsVisible(!isVisible)
 
 		const closeSession = () => {
+      logOutQuery.refetch()
 			localStorage.clear();
       navigate(0);
 		};
