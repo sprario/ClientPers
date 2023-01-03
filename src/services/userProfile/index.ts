@@ -1,17 +1,6 @@
-//import { fetchJson } from '~/utils/fetch/core';
-import { API_URL } from '../../constants';
-//import { FetchServiceEndpoint } from '~/types/service';
-import { UserProfile } from '../../types/domain/userProfile';
-import { UserProfileServiceResponse } from './types';
-
-const SERVICE_BASE_URL = `${API_URL}/users`;
-
-function mapFetchResponse(userProfileServiceResponse: UserProfileServiceResponse): UserProfile {
-  return { ...userProfileServiceResponse };
-}
-
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function getUserProfile() {
-    return null
+	return null;
 }
 
 // export function getUserProfile(): FetchServiceEndpoint<UserProfile> {

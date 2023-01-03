@@ -1,29 +1,34 @@
-import React, { createContext } from 'react';
+import React, { createContext, useMemo, useState } from 'react';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 interface AuthProviderProps {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 
 interface AuthContextProps {
-  accessToken: string | null;
+	accessToken: string;
 }
 
 const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
 
 function AuthProvider({ children }: AuthProviderProps): JSX.Element {
-  const accessToken = localStorage.getItem('accessToken');
+	const [ authToken ] = useMemo<string>(() => {
+    const item = localStorage.getItem('accessToken');
+    return item ? item : '';
+  }, [localStorage]);
 
-  console.log(accessToken, 'aauth')
+	const accessToken = authToken;
+	// console.log(accessToken, 'toke')
 
-  return (
-    <AuthContext.Provider
-      value={{
-        accessToken,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+	return (
+		<AuthContext.Provider
+			value={{
+				accessToken,
+			}}
+		>
+			{children}
+		</AuthContext.Provider>
+	);
 }
 
 export { AuthContext };

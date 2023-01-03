@@ -1,21 +1,19 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import {Navigate, Outlet} from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom';
 
-const useAuth=()=>{
-  const user=localStorage.getItem('accessToken')
-  if(user){
-    return true
-  } else {
-    return false
-  }
-}
+const useAuth = () => {
+	const user = localStorage.getItem('accessToken');
+	if (user) {
+		return true;
+	}
+	return false;
+};
 
-const  PublicRoutes=(props:any) =>{
+const PublicRoutes: FunctionComponent = () => {
+	const auth = useAuth();
 
-  const auth = useAuth()
-
-  return auth ? <Navigate to="/dashboard"/> : <Outlet/>
-}
+	return auth ? <Navigate to="/dashboard" /> : <Outlet />;
+};
 
 export default PublicRoutes;

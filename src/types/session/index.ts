@@ -1,3 +1,3 @@
 export interface SessionAuthContext {
-      accessToken: string;
-  }
+	accessToken: string;
+}

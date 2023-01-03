@@ -1,5 +1,8 @@
-import loginHandlers from './login'
+import addUserHandlers from './addUser';
+import loginHandlers from './login';
+import formsHandlers from './forms';
+import orderHandlers from './orders';
 
-const handlers = [...loginHandlers]
+const handlers = [...addUserHandlers, ...formsHandlers, ...orderHandlers];
 
-export default handlers
+export default handlers;
