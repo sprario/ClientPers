@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 interface ColumnsTable {
   id: string;
-  creationAt:  string;
+  created:  string;
 }
 
 interface TableProps {
@@ -38,17 +38,17 @@ const TableHome: FunctionComponent<TableProps> = ({ data, type = 'forms' }: Tabl
           </thead>
           <tbody>
             {
-              data && data.map((form, idx) => (
-                <tr key={form.id}>
+              data && data.map(({id, created}) => (
+                <tr key={id}>
                   <td
                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                   >
-                   <Link   to={`${type}/${form.id}`}> {form.id}</Link> 
+                   <Link   to={`${type}/${id}`}> {id}</Link> 
                   </td>
                   <td
                     className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                   >
-                    {formatLongDateHour(new Date(form.creationAt))}
+                    {formatLongDateHour(new Date(created))}
                   </td>
                   
                 </tr>   

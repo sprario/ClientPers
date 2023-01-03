@@ -1,13 +1,17 @@
 export interface Fields {
-	type: string;
-	label: string;
+	id: string;
+	title: string;
+	subtitle: string;
+	widget_type: string;
 	value: string;
+	description?: any;
 }
 
 export interface FormResponse {
-	id: string;
-	name: string;
-	fields: Fields[];
+	title: string;
+	color: string;
+	schema_id: string,
+	formValues: Fields[];
 }
 
 export interface FormsRequest {
@@ -16,5 +20,5 @@ export interface FormsRequest {
 
 export interface FormsResponse {
 	id: string;
-	creationAt: string;
+	created: string;
 }

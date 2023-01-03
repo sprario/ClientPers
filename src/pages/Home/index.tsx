@@ -13,18 +13,16 @@ const Home: FunctionComponent = () => {
 	const formQuery = useQuery(() => getForms(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
 	const orderQuery = useQuery(() => getOrders(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
 
-	const tableFormData = formQuery.data?.slice( 0, 5) || [];
-	const tableOrderData = orderQuery.data?.slice( 0, 5) || [];
 
 	return (
 		<div className='flex flex-row w-full'>
 			<Spinner isfullPage={false} loading={formQuery.isLoading || orderQuery.isLoading} />
 			<PanelFit title='Formularios'>  
-				{formQuery.isSuccess	&&	<TableHome type='forms' data={tableFormData}/>}
+				{formQuery.isSuccess	&&	<TableHome type='forms' data={formQuery.data.data}/>}
 			</PanelFit>
-			<PanelFit title='Ordenes de Trabajo'>
+			{/* <PanelFit title='Ordenes de Trabajo'>
 				{orderQuery.isSuccess &&  <TableHome type='orders' data={tableOrderData}/>}
-			</PanelFit>
+			</PanelFit> */}
 		</div>
 	);
 };

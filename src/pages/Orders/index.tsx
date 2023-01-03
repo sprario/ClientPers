@@ -25,9 +25,9 @@ const Orders: React.FunctionComponent = () => {
 					<hr className="my-4 md:min-w-full" />
 					<ul className=" flex flex-col list-none">
 					{data && data.map(order => (
-						<div key={order.id} className="text-sm uppercase py-1 font-bold block text-blueGray-700 hover:text-blueGray-500">
+						<div key={order._id} className="text-sm uppercase py-1 font-bold block text-blueGray-700 hover:text-blueGray-500">
 							<i className="fa fa-table mr-2 text-sm text-blueGray-300"></i>
-							<Link to={`${order.id}`}>{order.id}</Link>
+							<Link to={`${order._id}`}>{order._id}</Link>
 						</div>
 						))}
 					</ul>

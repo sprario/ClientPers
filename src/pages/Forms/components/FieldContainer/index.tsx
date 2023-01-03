@@ -1,55 +1,33 @@
 import React, { FunctionComponent } from 'react';
-import { formatLongDateHour } from '@/utils/formatters/date';
+import { DateField, TextField, SelectionField, SignatureField } from './components';
+import { FieldsForm } from '@/types/domain/forms';
 
-interface FieldContainerProps {
-  label: string;
-  value: string;
-  type: string;
-}
 
-const FieldContainer: FunctionComponent<FieldContainerProps> = ({ label, value, type = 'text' }: FieldContainerProps ) => {
+const FieldContainer: FunctionComponent<FieldsForm> = (props: FieldsForm ) => {
+  if(!props.value) return null
 
-  // const text = () => (
-  //   <>
-  //     <div className='flex items-center'>
-  //       <p className='md:min-w-full border-red-600 text-blueGray-500 text-xs uppercase font-bold no-underline'>
-  //         {label + ':'}
-  //       </p>
-  //     </div><div className='border-red-700 px-5 items-center'>
-  //       <p className='text-sm'>{value}</p>
-  //     </div>
-  //   </>
-  // );
-
-  // const date = () => (
-  //   <>
-  //     <div className='flex items-center'>
-  //       <p className='md:min-w-full border-red-600 text-blueGray-500 text-xs uppercase font-bold no-underline'>
-  //         {label + ':'}
-  //       </p>
-  //     </div><div className='border-red-700 px-5 items-center'>
-  //       <p className='text-sm'>{formatLongDateHour(new Date(value))}</p>
-  //     </div>
-  //   </>
-  // );
-  
-  
+  const renderTypes = {
+    TEXT_FIELD: (<TextField {...props} />),
+    LABEL_FIELD: (<TextField {...props} />),
+    NUMBER_FIELD: (<TextField {...props} />),
+    NEW_SECTION: (<TextField {...props} />),
+    STATIC_FIELD: (<TextField {...props} />),
+    LINK_FIELD: (<TextField {...props} />),
+    DROPDOWN_SELECTION: (<TextField {...props} />),
+    SIMPLE_SELECTION: (<TextField {...props} />),
+    MULTIPLE_SELECTION: (<SelectionField {...props} />),
+    TEXT_PARAGRAPH: (<TextField {...props} />),
+    DATE_FIELD: (<DateField {...props} />),
+    TIME_FIELD: (<DateField {...props} />),
+    SIGNATURE_FIELD: (<TextField {...props} />),
+    SIGNATURES_FIELD_V2: (<SignatureField {...props} />),
+  }  
   
   return (
-    <div
+    <>
+      {renderTypes[props.widget_type  as keyof typeof renderTypes]}
+    </>
     
-    className="flex flex-row shadow rounded-lg border-zinc-500 my-5 px-2 py-2"
-    >
-      <div className='flex items-center' key={label}>
-        <p className='md:min-w-full border-red-600 text-blueGray-500 text-xs uppercase font-bold no-underline'>
-          {label + ':'} 
-        </p>
-      </div>
-      <div className='border-red-700 px-5 items-center'>
-        <p className='text-sm'>{value}</p>
-      </div>
-      
-    </div>
   );
 };
 

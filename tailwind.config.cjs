@@ -7,7 +7,12 @@ module.exports = {
     enabled: true,
     content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     options: {
-      safelist: [],
+      safelist: [
+        {
+          pattern:
+            /(bg)-(violet|blue|red|orange|yellow|green)-(100|200|300|400|500|600|700|800|900)/,
+        },
+      ],
     },
   },
   theme: {

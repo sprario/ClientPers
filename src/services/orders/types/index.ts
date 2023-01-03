@@ -5,7 +5,7 @@ export interface Fields {
 }
 
 export interface OrderResponse {
-	id: string;
+	_id: string;
 	name: string;
 	fields: Fields[];
 }
@@ -15,6 +15,6 @@ export interface FormsRequest {
 }
 
 export interface OrdersResponse {
-	id: string;
+	_id: string;
 	creationAt: string;
 }
