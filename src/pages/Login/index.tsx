@@ -36,6 +36,7 @@ const Login: FunctionComponent = () => {
 			.then(response => {
 				const { accessToken, userProfile } = response.data;
 				localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('userProfile', JSON.stringify(userProfile));
 				setUserProfile(userProfile);
 				navigate('/dashboard');
 			})

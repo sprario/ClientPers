@@ -1,69 +1,54 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-interface ColumnsTable {
-  id?: string;
-  label:  string | (() => React.ReactElement);
+interface Column {
+  title: string;
+  key: string;
 }
 
-interface TableProps {
-  columns: ColumnsTable[];
+interface Props {
+  data: { [key: string]: any }[];
+  columns: Column[];
   title?: string;
 }
 
-function Table ({ columns, title }: TableProps) {
-
+const Table: React.FC<Props> = ({title, data, columns }) => {
+  
   return (
-  <div className="block w-full overflow-x-auto">
-    <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-      <h3 className="font-semibold text-base text-blueGray-700">
-        {title}
-      </h3>
-    </div>              
-    <table
-      className="items-center w-full bg-transparent border-collapse"
-    >
-      <thead>
-        <tr>
-       {columns.map((col) => {
-          <th
-          className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-          >
-          {col.label}
-        </th>
-       })}
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <th
-            className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
-          >
-            /argon/index.html
-          </th>
-          <td
-            className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-          >
-            3,985
-          </td>
-          <td
-            className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-          >
-            319
-          </td>
-          <td
-            className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-          >
-            <i className="fas fa-arrow-down text-orange-500 mr-4"></i>
-            46,53%
-          </td>
-        </tr>
-     
-        
-       
-      </tbody>
-    </table>
-  </div>
+    <div className="w-full overflow-x-auto">
+      <div className="relative w-full px-4 max-w-full flex-grow flex-1">
+        <h3 className="font-semibold text-lg text-blueGray-500">
+          {title}
+        </h3>
+      </div>   
+      <table className="items-center w-full bg-transparent border">
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th
+              key={column.title}
+              className="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-200 text-blueGray-500 border-blueGray-100"
+              >
+                {column.title}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row, idx) => (
+            <tr key={idx} className={`${idx%2 === 1 ? 'bg-blueGray-50': 'bg-white'}`}>
+              {columns.map((column, idx) => (
+                <td 
+                key={row[column.key]+idx}
+                className={`border-t-0 min-w-100 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4`}
+                >
+                  {row[column.key]}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div> 
   );
 };
 

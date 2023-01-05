@@ -101,18 +101,18 @@ export const responseFormSuccess = {
 export const responseForms:FormsResponse[] = [
 	{
 		id: '3421',
-		creationAt: '2022-12-19T14:01:23.552Z',
+		created: '2022-12-19T14:01:23.552Z',
 	},
 	{
 		id: '3246',
-		creationAt: '2022-12-18T14:01:23.552Z',
+		created: '2022-12-18T14:01:23.552Z',
 	},
 	{
 		id: '3491',
-		creationAt: '2022-12-17T14:01:23.552Z',
+		created: '2022-12-17T14:01:23.552Z',
 	},
 	{
 		id: '32451',
-		creationAt: '2022-12-10T12:01:23.552Z',
+		created: '2022-12-10T12:01:23.552Z',
 	}
 ];

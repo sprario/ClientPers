@@ -21,7 +21,7 @@ async function fetchCore({
 	data,
 	accessToken,
 }: FetchServiceParams): Promise<Response> {
-	const token = localStorage.getItem('accessToken');
+	const token = localStorage.getItem('accessToken')
 	const fetchConfig: RequestInit = {
 		method,
 		// credentials: withCredentials ? 'include' : 'same-origin', // withCredentials

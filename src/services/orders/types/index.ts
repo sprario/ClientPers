@@ -15,6 +15,6 @@ export interface FormsRequest {
 }
 
 export interface OrdersResponse {
-	_id: string;
+	id: string;
 	creationAt: string;
 }

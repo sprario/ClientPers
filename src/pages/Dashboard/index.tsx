@@ -9,10 +9,16 @@ import { UserContext } from '@/context/UserContext';
 const Dashboard: FunctionComponent = () => {
   const { userProfile } = useContext(UserContext);
 
+  useEffect(() => {
+    if (userProfile) {
+      // hacer algo con el userProfile
+    }
+  }, [userProfile]);
+
   return (
     <div className="text-blueGray-700 antialiased h-full">
       <div id="root">
-        <SideBar routes={RoutesSideBar[userProfile?.role]} />
+        <SideBar routes={RoutesSideBar[userProfile?.role || 'admin']} />
         <div className="relative md:ml-64 bg-blueGray-50 h-screen">       
           <div className="relative bg-[#3373B5]  md:pt-32 pb-32 pt-12">
             <Header />

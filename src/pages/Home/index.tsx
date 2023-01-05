@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext } from 'react';
+import React, { FunctionComponent, useContext, useEffect } from 'react';
 import { PanelFit } from '@/components/Layout';
 import TableHome from './components/TableHome';
 import { getForms } from '@/services/forms';
@@ -9,9 +9,17 @@ import { getOrders } from '@/services/orders';
 
 const Home: FunctionComponent = () => {
 	const { userProfile } = useContext(UserContext);
+	const formQuery = useQuery(() => getForms(userProfile?._id), { enabled: false });
+	const orderQuery = useQuery(() => getOrders(userProfile?._id), { enabled: false });
 
-	const formQuery = useQuery(() => getForms(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
-	const orderQuery = useQuery(() => getOrders(userProfile?._id), { staleTime: 60000, cacheTime: 60000 });
+	useEffect(() => {
+    if (userProfile) {
+      formQuery.refetch();
+			orderQuery.refetch();
+    }
+  }, [userProfile]);
+
+	
 
 	const arraySorted = formQuery.data?.data.sort((a, b) => {
 			var keyA = new Date(a.created),

@@ -6,7 +6,6 @@ export interface LoginRequest {
 };
 
 export interface LoginResponse {
-	data: any;
 	accessToken: string;
 	userProfile: UserProfile;
 };

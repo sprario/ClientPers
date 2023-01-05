@@ -14,7 +14,7 @@ const Input: FunctionComponent<InputProps> = ({
 	...rest
 }) => {
 	return (
-		<div>
+		<>
 			<p>{title}</p>
 			<input
 				id={id}
@@ -28,7 +28,7 @@ const Input: FunctionComponent<InputProps> = ({
 				className="tw-w-full tw-shadow tw-rounded-lgv tw-p-2 tw-border-zinc-500 tw-wd-64"
 			/>
 			{rest}
-		</div>
+		</>
 	);
 };
 

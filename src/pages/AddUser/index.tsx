@@ -47,7 +47,6 @@ const AddUser: FunctionComponent = () => {
               <h6 className="text-slate-700 text-xl font-bold">
                 Nuevo Usuario
               </h6>
-              <i className="fa fa-user-plus text-slate-500 mr-2 text-sm"></i>
             </div>
           </div>
           <div className="flex-auto px-4 lg:px-10 py-10 pt-0">

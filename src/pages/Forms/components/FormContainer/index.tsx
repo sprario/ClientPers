@@ -13,8 +13,6 @@ const FormContainer: FunctionComponent =  () => {
 	const formQuery = useQuery(() => getFormWithId(userProfile?._id, id), { staleTime: 60000, cacheTime: 60000 });
 
 	const { data, isLoading, refetch, isFetching } = formQuery;
-	
-	console.log(data)
 
 	useEffect(() => {
 		refetch()

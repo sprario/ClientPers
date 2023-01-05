@@ -8,5 +8,6 @@ import Button from './Button';
 import Input from './Input';
 import Card from './Card';
 import SideBar from './SideBar';
+import Table from './Table';
 
-export { Avatar, Button, Card, Footer, Header, Input, Panel, PanelFit, SearchInput, SideBar };
+export { Avatar, Button, Card, Footer, Header, Input, Panel, PanelFit, SearchInput, SideBar, Table };

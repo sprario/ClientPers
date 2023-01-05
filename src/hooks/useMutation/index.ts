@@ -54,7 +54,7 @@ function useMutation<P, T>(
 	useEffect(() => {
 		if (handleErrors) {
 			if (useMutationResult.error) {
-				setError({ fetchError: useMutationResult.error });
+				setError({ title: 'Error en el servidor' });
 			} else {
 				// setError({});
 			}
