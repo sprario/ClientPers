@@ -75,7 +75,7 @@ const Users: FunctionComponent = () => {
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
-          {(clientQuery.isRefetching || clientQuery.isLoading) && <Spinner loading={clientQuery.isRefetching} isfullPage={false} />}
+          {(clientQuery.isRefetching || clientQuery.isLoading) && <Spinner loading={clientQuery.isRefetching || clientQuery.isLoading} isfullPage={false} />}
           {clientQuery.isSuccess && clientQuery.isStale &&  <Table data={data} columns={columnsArray} />}
           <Pagination totalPages={totalPages} currentPage={offset / limit + 1} onChangePage={handleChangePage} />
         </div>

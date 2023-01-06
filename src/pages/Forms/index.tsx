@@ -89,11 +89,13 @@ const Forms: React.FunctionComponent = () => {
 							{data && <ul className=" flex flex-col list-none">
 								{formQuery.isFetching && <Spinner size='medium' loading={true} isfullPage={false} />}
 								{formQuery.data && formQuery.data.data.map(form => (
-									<><div key={form.id} className="flex flex-row text-sm uppercase py-1 font-bold text-blueGray-700 hover:text-blueGray-500">
-										<i className="fa fa-table text-sm mt-1 px-2 text-blueGray-300"></i>
-										<Link to={`${form.id}`}>{form.id}</Link>
-										<p className='px-2 align-right text-right'>{formatShortDate(new Date(form.created))}</p>
-									</div><hr className="md:min-w-full" /></>
+									<div key={form.id}>
+									    <div  className="flex flex-row text-sm uppercase py-1 font-bold text-blueGray-700 hover:text-blueGray-500">
+											<i className="fa fa-table text-sm mt-1 px-2 text-blueGray-300"></i>
+											<Link to={`${form.id}`}>{form.id}</Link>
+											<p className='px-2 align-right text-right'>{formatShortDate(new Date(form.created))}</p>
+										</div><hr className="md:min-w-full" />
+									</div>
 									))}
 							</ul> }
 						</div>

@@ -35,7 +35,7 @@ const FormContainer: FunctionComponent =  () => {
 			<div className={`w-full p-2 bg-${data?.color.toLocaleLowerCase()}-200`}>
 			{data &&
 				data.formValues.map(({id, title, subtitle, widget_type, value}) => (
-				  <FieldContainer id={id} widget_type={widget_type} title={title} subtitle={subtitle} value={value} />
+				  <FieldContainer key={id} id={id} widget_type={widget_type} title={title} subtitle={subtitle} value={value} />
 				))}
 			</div>
 		</div>
