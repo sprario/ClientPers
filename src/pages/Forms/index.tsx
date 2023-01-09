@@ -24,7 +24,6 @@ const Forms: React.FunctionComponent = () => {
 	const { data, isLoading, isFetching, refetch } = useQuery(() => getForms(userProfile?._id, startDate?.toISOString(), endDate?.toISOString(), limit, offset), { enabled: false});
 
 	const totalPages = data?.paging ? Math.ceil(data.paging.total / limit) : 0;
-	console.log(data)
 
   const  handleChangePage= (newPage) => {
     if (newPage > page) {

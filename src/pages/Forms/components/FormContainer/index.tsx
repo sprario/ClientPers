@@ -15,8 +15,6 @@ const FormContainer: FunctionComponent =  () => {
 	const { data, isLoading, refetch, isFetching } = formQuery;
 
 	
-
-
 	useEffect(() => {
 		refetch()
 	}, [id])

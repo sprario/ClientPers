@@ -1,27 +1,34 @@
 import React, { FunctionComponent } from 'react';
+import { DateField, MasterDBField, TextField, SelectionField, SignatureField } from './components';
+import { FieldsForm } from '@/types/domain/forms';
 
-interface FieldContainerProps {
-  label: string;
-  value: string;
-}
 
-const FieldContainer: FunctionComponent<FieldContainerProps> = ({ label, value }: FieldContainerProps ) => {
+const FieldContainer: FunctionComponent<FieldsForm> = (props: FieldsForm ) => {
+  if(!props.value || props.value.length < 1) return null;
 
+  const renderTypes = {
+    TEXT_FIELD: (<TextField {...props} />),
+    LABEL_FIELD: (<TextField {...props} />),
+    NUMBER_FIELD: (<TextField {...props} />),
+    NEW_SECTION: (<TextField {...props} />),
+    STATIC_FIELD: (<TextField {...props} />),
+    LINK_FIELD: (<TextField {...props} />),
+    DROPDOWN_SELECTION: (<TextField {...props} />),
+    SIMPLE_SELECTION: (<TextField {...props} />),
+    MULTIPLE_SELECTION: (<SelectionField {...props} />),
+    TEXT_PARAGRAPH: (<TextField {...props} />),
+    DATE_FIELD: (<DateField {...props} />),
+    TIME_FIELD: (<DateField {...props} />),
+    SIGNATURE_FIELD: (<TextField {...props} />),
+    SIGNATURES_FIELD_V2: (<SignatureField {...props} />),
+    MASTER_DB_TABLE: (<MasterDBField {...props} />)
+  }  
+  
   return (
-    <div
-    key={label}
-    className="flex flex-row shadow rounded-lg border-zinc-500 my-5 px-2 py-2"
-    >
-      <div className='flex items-center'>
-        <p className='md:min-w-full text-blueGray-500 text-xs uppercase font-bold no-underline'>
-          {label + ':'} 
-        </p>
-      </div>
-      <div className='px-5 items-center'>
-        <p className='text-sm'>{value}</p>
-      </div>
-      
-    </div>
+    <>
+      {renderTypes[props.widget_type as keyof typeof renderTypes]}
+    </>
+    
   );
 };
 

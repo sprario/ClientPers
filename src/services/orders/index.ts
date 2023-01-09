@@ -6,8 +6,8 @@ import { OrderResponse, OrdersResponse } from './types'
 const SERVICE_BASE_URL = `${API_URL}/orders/`;
 
 
-export const getOrders = ( userId?: string ): FetchServiceEndpoint<OrdersResponse[]> => {
-	const url = `${SERVICE_BASE_URL}${userId}/`;
+export const getOrders = ( userId?: string, startDate?: string, endDate?: string ): FetchServiceEndpoint<OrdersResponse[]> => {
+	const url = `${SERVICE_BASE_URL}${userId}${startDate && endDate ? `?from=${startDate}&to=${endDate}`: '/'}`;
 
 	return {
 		keys: ['orders-request'],
@@ -22,9 +22,9 @@ export const getOrders = ( userId?: string ): FetchServiceEndpoint<OrdersRespons
 	};
 };
 
-export const getOrderWithId = (userId?: string,formId?: string): FetchServiceEndpoint<OrderResponse> => {
+export const getOrderWithId = (userId?: string,orderId?: string): FetchServiceEndpoint<OrderResponse> => {
 	
-	const url = `${SERVICE_BASE_URL}${userId}/${formId}/`;
+	const url = `${SERVICE_BASE_URL}${userId}/${orderId}/`;
 
 	return {
 		keys: ['order-request'],

@@ -25,26 +25,26 @@ export const responseOrderSuccess = {
 export const responseOrders:OrdersResponse[] = [
 	{
 		id: '123',
-		creationAt: '2022-12-20T14:01:23.552Z',
+		created: '2022-12-20T14:01:23.552Z',
 	},
 	{
 		id: '124',
-		creationAt: '2022-12-20T14:01:23.552Z',
+		created: '2022-12-20T14:01:23.552Z',
 	},
 	{
 		id: '125',
-		creationAt: '2022-12-20T14:01:23.552Z',
+		created: '2022-12-20T14:01:23.552Z',
 	},
 	{
 		id: '126',
-		creationAt: '2022-12-20T14:01:23.552Z',
+		created: '2022-12-20T14:01:23.552Z',
 	},
 	{
 		id: '127',
-		creationAt: '2022-12-20T14:01:23.552Z',
+		created: '2022-12-20T14:01:23.552Z',
 	},
 	{
 		id: '128',
-		creationAt: '2022-12-20T14:01:23.552Z',
+		created: '2022-12-20T14:01:23.552Z',
 	},
 ];

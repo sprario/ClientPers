@@ -1,13 +1,18 @@
 export interface Fields {
-	type: string;
-	label: string;
+	id: string;
+	title: string;
+	subtitle: string;
+	widget_type: string;
 	value: string;
+	description?: any;
 }
 
 export interface OrderResponse {
-	_id: string;
-	name: string;
-	fields: Fields[];
+	id: string;
+	state: string;
+	schema_id: string | number;
+	instructionsFields: Fields[];
+	resultsFields: Fields[];
 }
 
 export interface FormsRequest {
@@ -16,5 +21,5 @@ export interface FormsRequest {
 
 export interface OrdersResponse {
 	id: string;
-	creationAt: string;
+	created: string;
 }

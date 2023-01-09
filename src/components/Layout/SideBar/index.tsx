@@ -7,7 +7,7 @@ import { builtinModules } from 'module';
 
 type RoutesProps = {
   routes : {
-    groups: {
+    groups?: {
       title?: string;
       path: string;
       icon?: string;

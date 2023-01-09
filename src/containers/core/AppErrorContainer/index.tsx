@@ -10,14 +10,15 @@ function AppErrorContainer({
 	const navigate = useNavigate();
 
 	const reloadPage = useCallback(() => {
-		navigate(0);
+		navigate('/dashboard');
+		
 	}, [navigate]);
 
 	return (
 		<div>
 			<h1 className="">{title}</h1>
 			<h3 className="">{subtitle}</h3>
-			<button onClick={retryOnError || reloadPage}>Regresar al inicio</button>
+			<button onClick={reloadPage}>Regresar al inicio</button>
 		</div>
 	);
 }
