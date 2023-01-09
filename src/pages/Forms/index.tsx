@@ -7,16 +7,33 @@ import { getForms } from '../../services/forms';
 import Spinner from '@/components/Layout/Spinner';
 import "react-datepicker/dist/react-datepicker.css";
 import { formatShortDate } from '@/utils/formatters/date';
+import Pagination from '@/components/Layout/Pagination';
 
 
 const Forms: React.FunctionComponent = () => {
 	const { userProfile } = useContext(UserContext);
 	const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
+	const { id } = useParams();
 
-	const formQuery = useQuery(() => getForms(userProfile?._id, startDate?.toISOString(), endDate?.toISOString()), { enabled: false});
+	const [ limit, setLimit ] = useState(10);
+  const [ offset, setOffset ] = useState(0);
 
-	const { data, isLoading } = formQuery
+  const [ page, setPage ] = useState(1)
+
+	const { data, isLoading, isFetching, refetch } = useQuery(() => getForms(userProfile?._id, startDate?.toISOString(), endDate?.toISOString(), limit, offset), { enabled: false});
+
+	const totalPages = data?.paging ? Math.ceil(data.paging.total / limit) : 0;
+	console.log(data)
+
+  const  handleChangePage= (newPage) => {
+    if (newPage > page) {
+      setOffset(offset + limit)
+    } else {
+      setOffset(offset - limit)
+    }
+    setPage(newPage);
+  }
 
 	const isDisabled = useMemo(() => {
 		if (!startDate ||!endDate) return true;
@@ -28,10 +45,8 @@ const Forms: React.FunctionComponent = () => {
 	}, [startDate, endDate]);
 
 	useEffect(() => {
-    if (userProfile) {
-      formQuery.refetch();
-    }
-  }, [userProfile]);
+    refetch();
+  },[page, data, offset])
 
 	return (
 		<div className="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg bg-slate-100 border-0">
@@ -80,30 +95,32 @@ const Forms: React.FunctionComponent = () => {
 								className="bg-blue-500 disabled:opacity-50 text-white font-bold uppercase text-xs px-4 py-1 rounded shadow hover:shadow-md m-2"
 								type="button"
 								disabled={isDisabled}
-								onClick={() => formQuery.refetch()}
+								onClick={() => refetch()}
 							>
 								Buscar
 							</button>
 						</div>
 						<div className='mx-2'>
 							{data && <ul className=" flex flex-col list-none">
-								{formQuery.isFetching && <Spinner size='medium' loading={true} isfullPage={false} />}
-								{formQuery.data && formQuery.data.data.map(form => (
+								{isFetching && <Spinner size='medium' loading={true} isfullPage={false} />}
+								{data && data.data.map(form => (
 									<div key={form.id}>
-									    <div  className="flex flex-row text-sm uppercase py-1 font-bold text-blueGray-700 hover:text-blueGray-500">
+										<div className={`flex flex-row text-sm uppercase py-1 font-bold ${form.id === id ? 'text-blue-500': 'text-blueGray-700'}  hover:text-blueGray-500`}>
 											<i className="fa fa-table text-sm mt-1 px-2 text-blueGray-300"></i>
 											<Link to={`${form.id}`}>{form.id}</Link>
 											<p className='px-2 align-right text-right'>{formatShortDate(new Date(form.created))}</p>
-										</div><hr className="md:min-w-full" />
+										</div>
+										<hr className="md:min-w-full" />
 									</div>
 									))}
 							</ul> }
+							<Pagination totalPages={totalPages} currentPage={offset / limit + 1} onChangePage={handleChangePage} />
 						</div>
 					</nav>
 				</div>
-				<div className="w-full px-5 py-4">
+
 						<Outlet />
-				</div>
+
 			</div>
 		</div>
 	);

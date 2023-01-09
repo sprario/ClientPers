@@ -6,8 +6,8 @@ import { FormResponse, FormsResponse } from './types';
 const SERVICE_BASE_URL = `${API_URL}/forms/`;
 
 
-export const getForms = ( userId?: string, startDate?: string, endDate?: string ): FetchServiceEndpoint<{data:FormsResponse[], paging: any}> => {
-	const url = `${SERVICE_BASE_URL}${userId}${startDate && endDate ? `?from=${startDate}&to=${endDate}&limit=10`: '/'}`;
+export const getForms = ( userId?: string, startDate?: string, endDate?: string, limit?: string | number, offset?: string| number ): FetchServiceEndpoint<{data:FormsResponse[], paging: any}> => {
+	const url = `${SERVICE_BASE_URL}${userId}${startDate && endDate ? `?from=${startDate}&to=${endDate}&limit=${limit}&offset=${offset}`: '/'}`;
 
 	return {
 		keys: ['forms-request'],

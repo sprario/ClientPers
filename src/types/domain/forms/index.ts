@@ -7,6 +7,6 @@ export interface FieldsForm {
 	title: string;
 	subtitle: string;
 	widget_type: string;
-	value: string;
+	value: string | any;
 	description?: any;
 }

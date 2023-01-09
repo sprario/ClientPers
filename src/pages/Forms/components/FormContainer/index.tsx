@@ -14,6 +14,9 @@ const FormContainer: FunctionComponent =  () => {
 
 	const { data, isLoading, refetch, isFetching } = formQuery;
 
+	
+
+
 	useEffect(() => {
 		refetch()
 	}, [id])
@@ -34,9 +37,11 @@ const FormContainer: FunctionComponent =  () => {
 			</div>
 			<div className={`w-full p-2 bg-${data?.color.toLocaleLowerCase()}-200`}>
 			{data &&
-				data.formValues.map(({id, title, subtitle, widget_type, value}) => (
-				  <FieldContainer key={id} id={id} widget_type={widget_type} title={title} subtitle={subtitle} value={value} />
-				))}
+				data?.formValues.map((props, idx) => {
+					console.log(props, idx)
+					return (
+				  <FieldContainer key={idx*Math.random()} {...props} />
+				)})}
 			</div>
 		</div>
 	);

@@ -35,10 +35,10 @@ const Table: React.FC<Props> = ({title, data, columns }) => {
         </thead>
         <tbody>
           {data.map((row, idx) => (
-            <tr key={idx} className={`${idx%2 === 1 ? 'bg-blueGray-50': 'bg-white'}`}>
+            <tr key={idx + Math.random()} className={`${idx%2 === 1 ? 'bg-blueGray-50': 'bg-white'}`}>
               {columns.map((column, idx) => (
                 <td 
-                key={row[column.key]+idx}
+                key={column.key + String(Math.random())}
                 className={`border-t-0 min-w-100 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4`}
                 >
                   {row[column.key]}

@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { DateField, TextField, SelectionField, SignatureField } from './components';
+import { DateField, MasterDBField, TextField, SelectionField, SignatureField } from './components';
 import { FieldsForm } from '@/types/domain/forms';
 
 
 const FieldContainer: FunctionComponent<FieldsForm> = (props: FieldsForm ) => {
-  if(!props.value) return null
+  if(!props.value || props.value.length < 1) return null;
 
   const renderTypes = {
     TEXT_FIELD: (<TextField {...props} />),
@@ -21,11 +21,12 @@ const FieldContainer: FunctionComponent<FieldsForm> = (props: FieldsForm ) => {
     TIME_FIELD: (<DateField {...props} />),
     SIGNATURE_FIELD: (<TextField {...props} />),
     SIGNATURES_FIELD_V2: (<SignatureField {...props} />),
+    MASTER_DB_TABLE: (<MasterDBField {...props} />)
   }  
   
   return (
     <>
-      {renderTypes[props.widget_type  as keyof typeof renderTypes]}
+      {renderTypes[props.widget_type as keyof typeof renderTypes]}
     </>
     
   );
