@@ -4,8 +4,6 @@ import { Footer, Header, Panel, PanelFit, SideBar } from '@/components/Layout';
 import { routes as RoutesSideBar } from '@/constants/routes';
 import { UserContext } from '@/context/UserContext';
 
-// TODO: Hacer componente de Breadcrumbs
-// TODO: Tiene una ruta por defecto
 const Dashboard: FunctionComponent = () => {
   const { userProfile } = useContext(UserContext);
 

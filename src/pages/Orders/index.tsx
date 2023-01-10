@@ -16,6 +16,7 @@ const Orders: React.FunctionComponent = () => {
 	const { userProfile } = useContext(UserContext);
 	const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
+
 	const { id } = useParams();
 
   const [ page, setPage ] = useState(1)
@@ -29,6 +30,25 @@ const Orders: React.FunctionComponent = () => {
 		const end = endDate.getTime();
 		return (end - start) / (1000 * 60 * 60 * 24) > 15;
 	}, [startDate, endDate]);
+
+
+	const getPage = (array: any[], page: number) => {
+		const startIndex = (page - 1) * 10;
+		return array ? array.slice(startIndex, startIndex + 10): [];
+	};
+
+	const items = data ? getPage(data, page) : [];
+
+	const handlePrevClick = () => {
+    setPage(page - 1);
+  };
+
+  const handleNextClick = () => {
+    setPage(page + 1);
+  };
+
+	console.log(data)
+
 
 	useEffect(() => {
     refetch();
@@ -90,18 +110,32 @@ const Orders: React.FunctionComponent = () => {
 						<div className='mx-2'>
 							{data && <ul className=" flex flex-col list-none h-500 overflow-auto">
 								{isFetching && <Spinner size='medium' loading={true} isfullPage={false} />}
-								{data && data.map(order => (
+								{data && items.map(order => (
 									<li key={order.id}>
-										<div className={`flex flex-row text-sm uppercase py-1 font-bold ${order.id === id ? 'text-blue-500': 'text-blueGray-700'}  hover:text-blueGray-500`}>
-											<i className="fa fa-table text-sm mt-1 px-2 text-blueGray-300"></i>
-											<Link to={`${order.id}`}>{order.id}</Link>
-											<p className='px-2 align-right text-right'>{formatShortDate(new Date(order.created))}</p>
-										</div>
-										<hr className="md:min-w-full" />
+										<Link to={`${order.id}`}>
+											<div className={`flex flex-row justify-between text-sm uppercase py-1 font-bold ${order.id === id ? 'text-blue-500': 'text-blueGray-700'}  hover:text-blueGray-500`}>
+												<div className='flex flex-row'>
+													<i className="fa fa-table text-sm mt-1 px-2 text-blueGray-300"></i>
+													<p className=''>{order.id}</p>
+												</div>	
+												<p className='px-2'>{formatShortDate(new Date(order.created))}</p>
+											</div>
+											<hr className="md:min-w-full" />
+										</Link>
 									</li>
 									))}
 							</ul> }
-						</div>
+
+						</div>							
+						{data?.length > 10 && 
+						<div className='flex justify-between px-2 py-4 mt-16'>
+								<button onClick={handlePrevClick} disabled={page === 1}>
+									{'<'} Anterior
+								</button>
+								<button onClick={handleNextClick} disabled={page === Math.ceil(data?.length / 10)}>
+									Siguiente {'>'}
+								</button>
+   					</div>}
 					</nav>
 				</div>
 					<Outlet />
