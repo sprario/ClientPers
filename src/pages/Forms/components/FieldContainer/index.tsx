@@ -4,7 +4,7 @@ import { FieldsForm } from '@/types/domain/forms';
 
 
 const FieldContainer: FunctionComponent<FieldsForm> = (props: FieldsForm ) => {
-  if(!props.value || props.value.length < 1) return null;
+  // if(!props.value || props.value.length < 1) return null;
 
   const renderTypes = {
     TEXT_FIELD: (<TextField {...props} />),

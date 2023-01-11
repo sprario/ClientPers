@@ -3,28 +3,24 @@ import { FieldsForm } from "@/types/domain/forms";
 import { Table } from "@/components/Layout";
 
 
-const MasterDBField = (form: FieldsForm) => {
-  
+const MasterDBField = (field: FieldsForm) => {
+  const valForm = field;
+  const { description, value, title } = valForm;
 
-  const valForm = form;
-  const { description, value } = valForm;
-  // console.log(value.rows, 'value')
 
   const { rows } = value;
   
   
   const columns = description.cols.map(({col_id, name, type}) => {
     return {
-      id: col_id,
+      key: col_id,
       title: name
     }
   });
-
-  // console.log(columns, 'columns')
   
   return (
     <>
-      <Table columns={columns} data={rows}/>
+      <Table columns={columns} data={rows} title={title} />
       <hr className="my-2 md:min-w-full" />
     </>
   );

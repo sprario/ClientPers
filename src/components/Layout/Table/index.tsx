@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Table: React.FC<Props> = ({title, data, columns }) => {
-  
+  console.log(columns)
   return (
     <div className="w-full overflow-x-auto">
       <div className="relative w-full px-4 max-w-full flex-grow flex-1">
